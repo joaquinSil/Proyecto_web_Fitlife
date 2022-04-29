@@ -46,9 +46,6 @@ nav li a {
   text-decoration: none;
 }
 
-/*
-li
-*/
 li {
   list-style-type: none;
 }
@@ -61,9 +58,6 @@ li a:visited {
   color: white;
 }
 
-/*
-li
-*/
 h1 {
   font-size: 70px;
   text-align: center;
@@ -86,9 +80,6 @@ footer {
   font-size: 20px;
 }
 
-/*
-galeria
-*/
 #galeria ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -115,6 +106,7 @@ galeria
   margin-right: 15px;
   margin-bottom: 15px;
 }
+
 label {
   font-size: 20px;
   display: inline-block;
