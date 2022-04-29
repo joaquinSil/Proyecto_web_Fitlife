@@ -43,12 +43,6 @@ nav {
     }
 }
 
-
-
-/*
-li
-*/
-
 li {
     list-style-type: none;
     a:hover {
@@ -58,10 +52,6 @@ li {
         color: white;
     }
 }
-/*
-li
-*/
-
 h1 {
     font-size: 70px;
     text-align: center;
@@ -84,10 +74,6 @@ footer {
     font-size: 20px;
 }
 
-/*
-galeria
-*/
-
 #galeria{
     ul {
         display: flex;
@@ -100,13 +86,6 @@ galeria
         height: 600px;
     }
 }
-/*
-galeria
-*/
-
-/*
-ejercicio
-*/
 
 #ejercicio {
     ul {
@@ -119,11 +98,6 @@ ejercicio
         }
     }
 }
-
-/*
-ejercicio
-*/
-
 label{
     font-size: 20px;
     display: inline-block;
