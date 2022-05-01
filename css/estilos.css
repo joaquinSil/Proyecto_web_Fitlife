@@ -31,6 +31,15 @@ nav {
   background-color: #a2b9ee;
 }
 
+nav div a {
+  display: block;
+  color: #c6c6c6;
+  font-family: 'Amatic SC';
+  font-size: 24px;
+  text-align: center;
+  text-decoration: none;
+}
+
 nav li {
   float: left;
   margin: auto 7%;
