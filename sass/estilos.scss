@@ -132,15 +132,17 @@ label{
     
 }
 
-#meditacion{
+#meditacionMusica {
     display: flex;
     justify-content: center;
+
 }
 
-#meditacionVideos {
+#meditacion {
+
     ul {
         display: flex;
-
+        
         video {
 
             margin-left: 15px;
@@ -150,6 +152,8 @@ label{
         }
     }
 }
+
+
 
 #dieta{
     ul {
