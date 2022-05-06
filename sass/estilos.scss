@@ -342,29 +342,22 @@ div.ventanaError{
             color: #fff;
             border: 2px solid #B14141;
             cursor: pointer;
-            float: right;
         }
+    }
+}
+
 #login{
-*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    font-family: 'Amatic SC';
+    font-family: 'Amatic SC', sans-serif;
 }
-
-body{
-    width: 100%;
-    padding: 20px;
-    margin: auto;
-    margin-top: 100px;
-}
-
 .contenedor__todo{
-    width: 100%;
-    max-width: 800px;
-    margin: auto;
-    position: relative;
+        width: 100%;
+        max-width: 800px;
+        margin: auto;
+        position: relative;
 }
 
 .caja__trasera{
@@ -375,7 +368,6 @@ body{
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     background-color: rgba(0, 128, 255, 0.5);
-
 }
 
 .caja__trasera div{
@@ -467,7 +459,6 @@ body{
     cursor: pointer;
     color: white;
     outline: none;
-}
 }
 
 
