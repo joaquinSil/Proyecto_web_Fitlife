@@ -71,7 +71,7 @@ h1 {
   font-size: 70px;
   text-align: center;
   font-family: 'Sigmar One';
-  color: white;
+  color: #f2f2f2;
 }
 
 h2 {
@@ -84,7 +84,7 @@ h2 {
 
 footer {
   background-color: #a2b9ee;
-  color: white;
+  color: #f2f2f2;
   font-family: 'Amatic SC';
   font-size: 20px;
 }
@@ -171,6 +171,37 @@ div.figure p {
   margin-bottom: 15px;
   text-align: center;
   text-indent: 0;
+}
+
+div.calculadora {
+  background: #fff;
+  font-family: 'Open Sans',sans-serif;
+  font-size: 16px;
+}
+
+div.calculadora .contenedor {
+  width: 90%;
+  max-width: 1000px;
+  background: #f2f2f2;
+  padding: 40px;
+  margin: 20px auto;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+div.calculadora .contenedor .contenido {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 div.contacto {
@@ -306,7 +337,7 @@ div.contacto .contenedor .contenido .formulario button {
   cursor: pointer;
 }
 
-div.ventanaError {
+div.ventana {
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.7);
@@ -325,7 +356,7 @@ div.ventanaError {
           align-items: center;
 }
 
-div.ventanaError .mensajeError {
+div.ventana .mensaje {
   background: #fff;
   -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
           box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
@@ -333,14 +364,14 @@ div.ventanaError .mensajeError {
   padding: 30px 20px 15px;
 }
 
-div.ventanaError .mensajeError h3 {
+div.ventana .mensaje h3 {
   text-align: center;
   font-family: 'Ubuntu','sans-serif';
   font-size: 20px;
   font-weight: 400;
 }
 
-div.ventanaError .mensajeError h3:after {
+div.ventana .mensaje h3:after {
   content: '';
   display: block;
   width: 100%;
@@ -349,12 +380,12 @@ div.ventanaError .mensajeError h3:after {
   margin: 10px 0px 15px;
 }
 
-div.ventanaError .mensajeError p {
+div.ventana .mensaje p {
   font-size: 16px;
   color: #606060;
 }
 
-div.ventanaError .mensajeError p:before {
+div.ventana .mensaje p:before {
   content: '\f00d';
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   display: inline-block;
@@ -362,7 +393,7 @@ div.ventanaError .mensajeError p:before {
   margin-right: 8px;
 }
 
-div.ventanaError .mensajeError #btnClose {
+div.ventana .mensaje #btnClose {
   display: inline-block;
   padding: 3px 10px;
   margin-top: 10px;
@@ -370,6 +401,5 @@ div.ventanaError .mensajeError #btnClose {
   color: #fff;
   border: 2px solid #B14141;
   cursor: pointer;
-  float: right;
 }
 /*# sourceMappingURL=estilos.css.map */

@@ -9,7 +9,7 @@
 
 body {
     height: 100%;
-    background-color: #f2f2f2;
+    background-color: #f2f2f2;;
 }
 
 $container-max-widths: (
@@ -76,7 +76,7 @@ h1 {
     font-size: 70px;
     text-align: center;
     font-family: 'Sigmar One';
-    color: white;
+    color: #f2f2f2;;
 }
 
 h2 {
@@ -89,7 +89,7 @@ h2 {
 
 footer {
     background-color: #a2b9ee;
-    color: white;
+    color: #f2f2f2;;
     font-family: 'Amatic SC';
     font-size: 20px;
 }
@@ -180,7 +180,31 @@ div.figure {
     }
 }
 
-<<<<<<< HEAD
+div.calculadora{
+    background: #fff;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 16px;
+    .contenedor{
+        width: 90%;
+        max-width: 1000px;
+        background: #f2f2f2;
+        padding: 40px;
+        margin: 20px auto;
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, .5);
+
+        .contenido{
+            display: flex;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    }
+
+}
+
 div.contacto{
     background: #f2f2f2;
     font-family: 'Open Sans',sans-serif;
@@ -244,12 +268,11 @@ div.contacto{
                         font-size: 18px;
                         border-radius: 50%;
                         box-shadow: 0px 3px 8px rgba(0, 0, 0, .4);
-
-                        
                     }
+
                     a:hover{
-                            box-shadow: 0px 3px 8px rgba(0, 0, 0, .4);
-                        }
+                        box-shadow: 0px 3px 8px rgba(0, 0, 0, .4);
+                    }
                 }
             }
             .formulario{
@@ -290,7 +313,7 @@ div.contacto{
     }
 }
 
-div.ventanaError{
+div.ventana{
     width: 100%;
     height: 100vh;
     background: rgba(0, 0, 0, .7);
@@ -301,7 +324,7 @@ div.ventanaError{
     display: flex;
     justify-content: center;
     align-items: center;
-    .mensajeError{
+    .mensaje{
         background: #fff;
         box-shadow: 0px 0px 15px rgba(0, 0, 0, .5);
         width: 400px;
@@ -343,176 +366,7 @@ div.ventanaError{
             color: #fff;
             border: 2px solid #B14141;
             cursor: pointer;
-            float: right;
+            
         }
-=======
-/*Login*/
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-family: 'Amatic SC';
-}
-
-body{
-    width: 100%;
-    padding: 20px;
-    margin: auto;
-    margin-top: 100px;
-}
-
-.contenedor__todo{
-    width: 100%;
-    max-width: 800px;
-    margin: auto;
-    position: relative;
-}
-
-.caja__trasera{
-    width: 100%;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: center;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    background-color: rgba(0, 128, 255, 0.5);
-
-}
-
-.caja__trasera div{
-    margin: 100px 40px;
-    color: white;
-    transition: all 500ms;
-}
-
-
-.caja__trasera div p,
-.caja__trasera button{
-    margin-top: 30px;
-}
-
-.caja__trasera div h3{
-    font-weight: 400;
-    font-size: 26px;
-}
-
-.caja__trasera div p{
-    font-size: 16px;
-    font-weight: 300;
-}
-
-.caja__trasera button{
-    padding: 10px 40px;
-    border: 2px solid #fff;
-    font-size: 14px;
-    background: transparent;
-    font-weight: 600;
-    cursor: pointer;
-    color: white;
-    outline: none;
-    transition: all 300ms;
-}
-
-.caja__trasera button:hover{
-    background: #fff;
-    color: #46A2FD;
-}
-
-/*Formularios*/
-
-.contenedor__login-register{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 380px;
-    position: relative;
-    top: -185px;
-    left: 10px;
-
-    /*La transicion va despues del codigo JS*/
-    transition: left 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
-}
-
-.contenedor__login-register form{
-    width: 100%;
-    padding: 80px 20px;
-    background: white;
-    position: absolute;
-    border-radius: 20px;
-}
-
-.contenedor__login-register form h2{
-    font-size: 30px;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #46A2FD;
-}
-
-.contenedor__login-register form input{
-    width: 100%;
-    margin-top: 20px;
-    padding: 10px;
-    border: none;
-    background: #F2F2F2;
-    font-size: 16px;
-    outline: none;
-}
-
-.contenedor__login-register form button{
-    padding: 10px 40px;
-    margin-top: 40px;
-    border: none;
-    font-size: 14px;
-    background: #46A2FD;
-    font-weight: 600;
-    cursor: pointer;
-    color: white;
-    outline: none;
-}
-
-
-
-
-.formulario__login{
-    opacity: 1;
-    display: block;
-}
-.formulario__register{
-    display: none;
-}
-
-
-
-@media screen and (max-width: 850px){
-
-    main{
-        margin-top: 50px;
-    }
-
-    .caja__trasera{
-        max-width: 350px;
-        height: 300px;
-        flex-direction: column;
-        margin: auto;
-    }
-
-    .caja__trasera div{
-        margin: 0px;
-        position: absolute;
-    }
-
-
-    /*Formularios*/
-
-    .contenedor__login-register{
-        top: -10px;
-        left: -5px;
-        margin: auto;
-    }
-
-    .contenedor__login-register form{
-        position: relative;
->>>>>>> 042527cbbfe732cf8ea0e7f9ebcca439a7992d96
     }
 }
