@@ -174,7 +174,7 @@ div.figure p {
 }
 
 div.calculadora {
-  background: #fff;
+  background: #f2f2f2;
   font-family: 'Open Sans',sans-serif;
   font-size: 16px;
 }
@@ -225,7 +225,7 @@ div.contacto .contenedor h1 {
   font-weight: 600;
   text-align: center;
   margin-bottom: 25px;
-  color: #15CF8A;
+  color: #a2b9ee;
 }
 
 div.contacto .contenedor .contenido {
@@ -246,8 +246,8 @@ div.contacto .contenedor .contenido .info .col {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 15px;
-  font-size: 16px;
+  margin-bottom: 17px;
+  font-size: 17px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -256,11 +256,17 @@ div.contacto .contenedor .contenido .info .col {
 }
 
 div.contacto .contenedor .contenido .info .col .icono {
-  color: #15CF8A;
+  color: #a2b9ee;
   margin-right: 10px;
 }
 
 div.contacto .contenedor .contenido .info .col p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: #999;
 }
 
@@ -281,7 +287,7 @@ div.contacto .contenedor .contenido .info .redes-s a {
   display: flex;
   width: 40px;
   height: 40px;
-  background: #15CF8A;
+  background: #a2b9ee;
   color: #fff;
   margin: 5px;
   -webkit-box-pack: center;
@@ -325,14 +331,14 @@ div.contacto .contenedor .contenido .formulario .textarea {
 }
 
 div.contacto .contenedor .contenido .formulario input:focus, div.contacto .contenedor .contenido .formulario textarea:focus {
-  border: 1px solid #15CF8A;
+  border: 1px solid #a2b9ee;
 }
 
 div.contacto .contenedor .contenido .formulario button {
   padding: 12px 30px;
   border: transparent;
   border-radius: 10px;
-  background: #15CF8A;
+  background: #a2b9ee;
   color: #fff;
   cursor: pointer;
 }
