@@ -451,9 +451,10 @@ div.ventana .mensaje #btnClose {
   transition: all 500ms;
 }
 
-#login .caja__trasera div p,
-#login .caja__trasera button {
+#login .caja__trasera div p {
   margin-top: 30px;
+  font-size: 16px;
+  font-weight: 300;
 }
 
 #login .caja__trasera div h3 {
@@ -461,12 +462,8 @@ div.ventana .mensaje #btnClose {
   font-size: 26px;
 }
 
-#login .caja__trasera div p {
-  font-size: 16px;
-  font-weight: 300;
-}
-
 #login .caja__trasera button {
+  margin-top: 30px;
   padding: 10px 40px;
   border: 2px solid #fff;
   font-size: 14px;
