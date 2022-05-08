@@ -1,8 +1,3 @@
--Iniciar sesión
 -Vontacto funcional con js o ts o nose
--Videos arreglados
 -Cuerpo del inicio
--Videos como objetos en js o ts
--Musica
--Calculadora IMC
 -Modularizar xdxd
