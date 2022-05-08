@@ -1,8 +1,6 @@
-let nombre:string ="pepito";
-
-console.log(nombre);
-
 let formulario:any=document.getElementById("formulario");
+let nombre:any=document.getElementById("nombre");
+let correo:any=document.getElementById("correo");
 let asunto:any=document.getElementById("asunto");
 let mensaje:any=document.getElementById("mensaje");
 let errores:string=''
@@ -12,15 +10,47 @@ formulario.addEventListener("submit",function(evento:any){
     evento.preventDefault();
     //asunto.HTMLFromElemnt(CSS("border-bottom-color","#F14B4B"));
 
-    if(asunto.value == ''){
-        errores += '<p>Escriba un asunto</p>';
+    if(nombre.value == ''){
+        errores += '<p>Escriba un mensaje</p>';
         console.log(errores);
-        asunto.innerHTML=`<"border-bottom-color=#F14B4B">`;
-    } else{
-        console.log(asunto.value);
+        //$('#mensaje').css("border-bottom-color","#F14B4B")
+    } /*else{
+        console.log(mensaje.value);
+        //$('#nombre').hide("border-bottom-color","#F14B4B")
+        //$('#mensaje').css("border-bottom-color","#999")
+    }*/
+    if(correo.value == ''){
+            errores += 'Escriba un correo';
+            //console.log(errores);
+            //$('#mensaje').css("border-bottom-color","#F14B4B")
+    } /*else{
+            console.log(mensaje.value);
+            //$('#nombre').hide("border-bottom-color","#F14B4B")
+            //$('#mensaje').css("border-bottom-color","#999")
+    }*/
+    if(asunto.value == ''){
+        errores += 'Escriba un asunto';
+        //console.log(errores);
+        //asunto.innerHTML=`<"border-bottom-color=#F14B4B">`;
+    }/* else{
+        
+
+        
         //$('#nombre').hide("border-bottom-color","#F14B4B")
         //$('#asunto').css("border-bottom-color","#999")
-    }
+    }*/
+
+    
+
+    if(mensaje.value == ''){
+        errores += '<p>Escriba un mensaje</p>';
+        console.log(errores);
+        //$('#mensaje').css("border-bottom-color","#F14B4B")
+    } /*else{
+        console.log(mensaje.value);
+        //$('#nombre').hide("border-bottom-color","#F14B4B")
+        //$('#mensaje').css("border-bottom-color","#999")
+    }*/
 /* function ListarVideos(){
         let i:number;
         let listaDeVideos:any = document.getElementById("ejerciciosDestacados");
@@ -32,12 +62,14 @@ formulario.addEventListener("submit",function(evento:any){
         }
     }*/
 
-    if(mensaje.value == ''){
-        errores += '<p>Escriba un mensaje</p>';
-        console.log(errores);
+    if(errores == ''){
+        console.log(nombre.value);
+        console.log(correo.value);
+        console.log(asunto.value);
+        console.log(mensaje.value);
         //$('#mensaje').css("border-bottom-color","#F14B4B")
     } else{
-        console.log(mensaje.value);
+        alert(errores);
         //$('#nombre').hide("border-bottom-color","#F14B4B")
         //$('#mensaje').css("border-bottom-color","#999")
     }
