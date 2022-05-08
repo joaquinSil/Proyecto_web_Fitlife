@@ -1,7 +1,3 @@
-
-
-console.log("aocadvcjaldkjlajsclkaj")
-
 $(document).ready(function(){
 
     $('.btn').click(function(){
