@@ -1,3 +1,0 @@
-Joaquín Andrés Silva Donoso
-María Ignacia Morales Soriano
-Andrés Marcelo Vidal Soto

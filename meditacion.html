@@ -16,11 +16,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Sigmar+One&display=swap" rel="stylesheet"> <!-- titulo -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Sigmar+One&display=swap" rel="stylesheet"> <!-- nav-->
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
-    
   </head>
 
   <body >
@@ -29,9 +28,6 @@
           <div class="column">
               <h1>FitLife</h1>
           </div>
-          <!--<div class="column">
-              <h2>cosas random</h2>
-          </div>-->
       </div>
       <nav class="navbar navbar-expand-lg navbar-light ">
           <div class="container-fluid">  
@@ -56,26 +52,9 @@
                   <a class="nav-link" href="login.html">Iniciar sesión</a>
                 </li>
               </ul>
-              <!--<form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-light" type="submit">Search</button>
-              </form>-->
             </div>
           </div>
         </nav>
-      <!--
-      <div class="container-fluid">
-          <nav class="navbar navbar-dark bg-primary">
-              <ul>
-                  <li> <a href="index.html"> Inicio </a> </li>
-                  <li> <a href="ejercicio.html"> Ejercicio </a> </li>
-                  <li> <a href="vidasana.html"> Nutrición </a> </li>
-                  <li> <a href="meditacion.html"> Meditación </a> </li>
-                  <li> <a href="Contacto.html"> Contacto </a> </li>
-                  <li> <a href="IniciarSesion.html"> Iniciar sesion </a> </li>
-              </ul>
-          </nav>
-      </div>-->
   </header>
 
       <h2>Musica para Meditar</h2>
@@ -83,33 +62,17 @@
         <iframe width="560" height="315" src="https://www.youtube.com/embed/22i6SofLVRY" title="YouTube video player" 
         frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen></iframe>
-          <!--<audio controls>
-              <source src="videos/musica zen.mp3"  type="audio/mpeg">
-          </audio>!-->
       </div>
       <h2>Tipos de Meditacion</h2>
       <div id="meditacion" class="figure">
-          <ul>
-              <p><iframe width="320" height="240" src="https://www.youtube.com/embed/rUXYKagk8go" 
-                  title="Meditación con Mantras" frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowfullscreen></iframe>
-                  Meditación con Mantras </p>
-                  
-              <p><iframe width="320" height="240" src="https://www.youtube.com/embed/1jkUKeR4m5A" title="Meditación Vipassana"
-                  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowfullscreen></iframe>
-                  Meditación Vipassana</p>
-              <p><iframe src="https://drive.google.com/file/d/1O8VTe6UyzD-tcVwpqAS7AvQgGzUYOyq0/preview" title="Meditación Zen"
-                width="320" height="240" allow="autoplay"></iframe>
-                  Meditación Zen</p>
-        </ul>
+          <ul id="Todas las meditaciones"></ul>
       </div>
 
       <footer>
-        pagina realizada por:
+        Página realizada por:
       </footer>
-
+      <script >var exports ={}</script>
+      <script src="./js/meditacion.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
 
