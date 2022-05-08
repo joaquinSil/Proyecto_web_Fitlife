@@ -11,8 +11,7 @@ formulario.addEventListener("submit", function (evento) {
     if (asunto.value == '') {
         errores += '<p>Escriba un asunto</p>';
         console.log(errores);
-        asunto.appendChild("input").innerHTML = `<"border-bottom-color=#F14B4B">`;
-       
+        asunto.innerHTML = `<"border-bottom-color=#F14B4B">`;
     }
     else {
         console.log(asunto.value);

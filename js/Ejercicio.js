@@ -1,15 +1,9 @@
+
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    console.log("xddd");
-    let Variable = 1231;
-    let variable = "wenaqlo";
-    function xd() {
-        console.log("xddddd");
-    }
-    window.addEventListener("load", xd);
-    let listaVideosDestacados = Array();
-    let listaVideos = Array();
-    listaVideosDestacados = [
+    let listaVideosDestacadosEjercicios = Array();
+    let listaVideosEjercicios = Array();
+    listaVideosDestacadosEjercicios = [
         {
             "nombre": "Rutina de abdomen",
             "link": "https://drive.google.com/file/d/1pWN8cGyarrqfL06FXxA5i8p74_lkImll/preview",
@@ -29,7 +23,7 @@
             "id": 3,
         }
     ];
-    listaVideos = [
+    listaVideosEjercicios = [
         {
             "nombre": "Rutina de abdomen",
             "link": "https://drive.google.com/file/d/1pWN8cGyarrqfL06FXxA5i8p74_lkImll/preview",
@@ -71,20 +65,20 @@
         let i;
         let listaDeVideos = document.getElementById("ejerciciosDestacados");
         let li = document.createElement("li");
-        for (i = 0; i < listaVideosDestacados.length; i++) {
+        for (i = 0; i < listaVideosDestacadosEjercicios.length; i++) {
             let li = document.createElement("li");
-            listaDeVideos.appendChild(li).innerHTML = `<iframe width="320" height="240" src =" ${listaVideosDestacados[i].link}">`;
+            listaDeVideos.appendChild(li).innerHTML = `<iframe width="320" height="240" src =" ${listaVideosDestacadosEjercicios[i].link}">`;
         }
     }
     function ListarVideos() {
         let i;
         let listaDeVideos = document.getElementById("Todas las rutinas");
         let li = document.createElement("li");
-        for (i = 0; i < listaVideos.length; i++) {
+        for (i = 0; i < listaVideosEjercicios.length; i++) {
             let li = document.createElement("li");
-            listaDeVideos.appendChild(li).innerHTML = `<iframe width="320" height="240" src =" ${listaVideos[i].link}">`;
+            listaDeVideos.appendChild(li).innerHTML = `<iframe width="320" height="240" src =" ${listaVideosEjercicios[i].link}">`;
         }
     }
-    window.addEventListener("load", xd);
     window.addEventListener("load", ListarVideosDestacados);
     window.addEventListener("load", ListarVideos);
+

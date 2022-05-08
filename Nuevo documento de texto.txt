@@ -1,3 +1,0 @@
--Vontacto funcional con js o ts o nose
--Cuerpo del inicio
--Modularizar xdxd
