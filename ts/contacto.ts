@@ -1,74 +1,73 @@
 let formulario:any=document.getElementById("formulario");
-let nombre:any=document.getElementById("nombre");
-let correo:any=document.getElementById("correo");
-let asunto:any=document.getElementById("asunto");
-let mensaje:any=document.getElementById("mensaje");
-let errores:string=''
+
+let errores:string='';
 
 formulario.addEventListener("submit",function(evento:any){
-    
+    evento.preventDefault();
+    let nombre:any=document.getElementById("nombre")
+    let correo:any=document.getElementById("correo");
+    let asunto:any=document.getElementById("asunto");
+    let mensaje:any=document.getElementById("mensaje");
     evento.preventDefault();
     //asunto.HTMLFromElemnt(CSS("border-bottom-color","#F14B4B"));
-
-    if(nombre.value == ''){
-        errores += '<p>Escriba un mensaje</p>';
-        console.log(errores);
+    console.log(nombre);
+    if ((nombre) == null) {
+        console.log('la conche tu mare');
+        errores += 'Escriba un nombre ';
+        //console.log(errores);
         //$('#mensaje').css("border-bottom-color","#F14B4B")
     } /*else{
         console.log(mensaje.value);
         //$('#nombre').hide("border-bottom-color","#F14B4B")
         //$('#mensaje').css("border-bottom-color","#999")
     }*/
-    if(correo.value == ''){
-            errores += 'Escriba un correo';
-            //console.log(errores);
-            //$('#mensaje').css("border-bottom-color","#F14B4B")
+    if ((correo) == '') {
+        errores += 'Escriba un correo ';
+        //console.log(errores);
+        //$('#mensaje').css("border-bottom-color","#F14B4B")
     } /*else{
             console.log(mensaje.value);
             //$('#nombre').hide("border-bottom-color","#F14B4B")
             //$('#mensaje').css("border-bottom-color","#999")
     }*/
-    if(asunto.value == ''){
-        errores += 'Escriba un asunto';
+    if ((asunto) == '') {
+        errores += 'Escriba un asunto ';
         //console.log(errores);
         //asunto.innerHTML=`<"border-bottom-color=#F14B4B">`;
-    }/* else{
+    } /* else{
         
 
         
         //$('#nombre').hide("border-bottom-color","#F14B4B")
         //$('#asunto').css("border-bottom-color","#999")
     }*/
-
-    
-
-    if(mensaje.value == ''){
-        errores += '<p>Escriba un mensaje</p>';
-        console.log(errores);
+    if ((mensaje) == '') {
+        errores += 'Escriba un mensaje ';
+        //console.log(errores);
         //$('#mensaje').css("border-bottom-color","#F14B4B")
     } /*else{
         console.log(mensaje.value);
         //$('#nombre').hide("border-bottom-color","#F14B4B")
         //$('#mensaje').css("border-bottom-color","#999")
     }*/
-/* function ListarVideos(){
-        let i:number;
-        let listaDeVideos:any = document.getElementById("ejerciciosDestacados");
-        let li:any=document.createElement("li");
-        for(i=0;i<listaVideos.length;i++)
-        {
+    /* function ListarVideos(){
+            let i:number;
+            let listaDeVideos:any = document.getElementById("ejerciciosDestacados");
             let li:any=document.createElement("li");
-            listaDeVideos.appendChild(li).innerHTML=`<iframe width="320" height="240" src =" ${listaVideos[i].link}">` ;
-        }
-    }*/
-
-    if(errores == ''){
-        console.log(nombre.value);
-        console.log(correo.value);
-        console.log(asunto.value);
-        console.log(mensaje.value);
+            for(i=0;i<listaVideos.length;i++)
+            {
+                let li:any=document.createElement("li");
+                listaDeVideos.appendChild(li).innerHTML=`<iframe width="320" height="240" src =" ${listaVideos[i].link}">` ;
+            }
+        }*/
+    if (errores == '') {
+        alert(nombre);
+        alert(correo);
+        alert(asunto);
+        alert(mensaje);
         //$('#mensaje').css("border-bottom-color","#F14B4B")
-    } else{
+    }
+    else {
         alert(errores);
         //$('#nombre').hide("border-bottom-color","#F14B4B")
         //$('#mensaje').css("border-bottom-color","#999")

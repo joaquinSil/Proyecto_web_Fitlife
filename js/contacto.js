@@ -1,14 +1,17 @@
 "use strict";
 let formulario = document.getElementById("formulario");
-let nombre = document.getElementById("nombre");
-let correo = document.getElementById("correo");
-let asunto = document.getElementById("asunto");
-let mensaje = document.getElementById("mensaje");
 let errores = '';
 formulario.addEventListener("submit", function (evento) {
     evento.preventDefault();
+    let nombre = document.getElementById("nombre").value;
+    let correo = document.getElementById("correo").value;
+    let asunto = document.getElementById("asunto").value;
+    let mensaje = document.getElementById("mensaje").value;
+    evento.preventDefault();
     //asunto.HTMLFromElemnt(CSS("border-bottom-color","#F14B4B"));
-    if (nombre.value == '') {
+    console.log(nombre);
+    if ((nombre) == null) {
+        console.log('la conche tu mare');
         errores += 'Escriba un nombre ';
         //console.log(errores);
         //$('#mensaje').css("border-bottom-color","#F14B4B")
@@ -17,7 +20,7 @@ formulario.addEventListener("submit", function (evento) {
         //$('#nombre').hide("border-bottom-color","#F14B4B")
         //$('#mensaje').css("border-bottom-color","#999")
     }*/
-    if (correo.value == '') {
+    if ((correo) == '') {
         errores += 'Escriba un correo ';
         //console.log(errores);
         //$('#mensaje').css("border-bottom-color","#F14B4B")
@@ -26,7 +29,7 @@ formulario.addEventListener("submit", function (evento) {
             //$('#nombre').hide("border-bottom-color","#F14B4B")
             //$('#mensaje').css("border-bottom-color","#999")
     }*/
-    if (asunto.value == '') {
+    if ((asunto) == '') {
         errores += 'Escriba un asunto ';
         //console.log(errores);
         //asunto.innerHTML=`<"border-bottom-color=#F14B4B">`;
@@ -37,7 +40,7 @@ formulario.addEventListener("submit", function (evento) {
         //$('#nombre').hide("border-bottom-color","#F14B4B")
         //$('#asunto').css("border-bottom-color","#999")
     }*/
-    if (mensaje.value == '') {
+    if ((mensaje) == '') {
         errores += 'Escriba un mensaje ';
         //console.log(errores);
         //$('#mensaje').css("border-bottom-color","#F14B4B")
@@ -57,10 +60,7 @@ formulario.addEventListener("submit", function (evento) {
             }
         }*/
     if (errores == '') {
-        console.log(nombre.value);
-        console.log(correo.value);
-        console.log(asunto.value);
-        console.log(mensaje.value);
+        alert(nombre+" "+correo+" "+asunto+" "+mensaje);
         //$('#mensaje').css("border-bottom-color","#F14B4B")
     }
     else {
