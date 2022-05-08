@@ -1,4 +1,4 @@
-
+define(["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     console.log("xddd");
@@ -40,4 +40,4 @@
     }
     window.addEventListener("load", xd);
     window.addEventListener("load", ListarVideos);
-
+});

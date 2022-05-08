@@ -1,45 +1,51 @@
-"use strict";
-let nombre = "pepito";
+let nombre:string ="pepito";
+
 console.log(nombre);
-let formulario = document.getElementById("formulario");
-let asunto = document.getElementById("asunto");
-let mensaje = document.getElementById("mensaje");
-let errores = '';
-formulario.addEventListener("submit", function (evento) {
+
+let formulario:any=document.getElementById("formulario");
+let asunto:any=document.getElementById("asunto");
+let mensaje:any=document.getElementById("mensaje");
+let errores:string=''
+
+formulario.addEventListener("submit",function(evento:any){
+    
     evento.preventDefault();
     //asunto.HTMLFromElemnt(CSS("border-bottom-color","#F14B4B"));
-    if (asunto.value == '') {
+
+    if(asunto.value == ''){
         errores += '<p>Escriba un asunto</p>';
         console.log(errores);
-        asunto.appendChild("input").innerHTML = `<"border-bottom-color=#F14B4B">`;
-       
-    }
-    else {
+        asunto.innerHTML=`<"border-bottom-color=#F14B4B">`;
+    } else{
         console.log(asunto.value);
         //$('#nombre').hide("border-bottom-color","#F14B4B")
         //$('#asunto').css("border-bottom-color","#999")
     }
-    /* function ListarVideos(){
-            let i:number;
-            let listaDeVideos:any = document.getElementById("ejerciciosDestacados");
+/* function ListarVideos(){
+        let i:number;
+        let listaDeVideos:any = document.getElementById("ejerciciosDestacados");
+        let li:any=document.createElement("li");
+        for(i=0;i<listaVideos.length;i++)
+        {
             let li:any=document.createElement("li");
-            for(i=0;i<listaVideos.length;i++)
-            {
-                let li:any=document.createElement("li");
-                listaDeVideos.appendChild(li).innerHTML=`<iframe width="320" height="240" src =" ${listaVideos[i].link}">` ;
-            }
-        }*/
-    if (mensaje.value == '') {
+            listaDeVideos.appendChild(li).innerHTML=`<iframe width="320" height="240" src =" ${listaVideos[i].link}">` ;
+        }
+    }*/
+
+    if(mensaje.value == ''){
         errores += '<p>Escriba un mensaje</p>';
         console.log(errores);
         //$('#mensaje').css("border-bottom-color","#F14B4B")
-    }
-    else {
+    } else{
         console.log(mensaje.value);
         //$('#nombre').hide("border-bottom-color","#F14B4B")
         //$('#mensaje').css("border-bottom-color","#999")
     }
 });
+
+
+
+
 /*
 $(document).ready(function(){
 
@@ -130,7 +136,7 @@ $(document).ready(function(){
                             errores += '<p>Usted tiene sobre peso, se le recomienda que baje su masa</p>';
                         }
                     }
-                }
+                }                
                 
                 var mensaje='<div class="ventana"><div class="mensaje">'+errores+'<><span id=btnClose>Cerrar</span></div></div>'
                 $('body').append(mensaje);
@@ -145,3 +151,4 @@ $(document).ready(function(){
     
 })
 */
+
