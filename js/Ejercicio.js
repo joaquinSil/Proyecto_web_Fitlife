@@ -83,9 +83,6 @@
         for (i = 0; i < listaVideos.length; i++) {
             let li = document.createElement("li");
             listaDeVideos.appendChild(li).innerHTML = `<iframe width="320" height="240" src =" ${listaVideos[i].link}">`;
-            if (i == 2) {
-                let p = document.createElement("br");
-            }
         }
     }
     window.addEventListener("load", xd);
