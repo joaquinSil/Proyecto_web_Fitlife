@@ -1,4 +1,4 @@
-define(["require", "exports"], function (require, exports) {
+
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     let listaVideosMeditacion = Array();
@@ -32,4 +32,4 @@ define(["require", "exports"], function (require, exports) {
         }
     }
     window.addEventListener("load", ListarVideos);
-});
+

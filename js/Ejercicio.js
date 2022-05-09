@@ -1,4 +1,4 @@
-define(["require", "exports"], function (require, exports) {
+
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     let listaVideosDestacadosEjercicios = Array();
@@ -81,4 +81,4 @@ define(["require", "exports"], function (require, exports) {
     }
     window.addEventListener("load", ListarVideosDestacados);
     window.addEventListener("load", ListarVideos);
-});
+
