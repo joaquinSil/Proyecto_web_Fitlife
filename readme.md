@@ -19,5 +19,5 @@ Diseño de las interfaces en Figma: https://www.figma.com/file/ETKJEMAzmnMtbCbtN
 - Calculadora IMC: Permitirá calcular el Indice de Masa Corporal de los usuarios, y estos se almacenarán si el usuario posee una cuenta en la plataforma.
 - Registro de las calorías: el usuario podrá registrar y modificar las calorías que consume en un día, y si posee cuenta en la página se le hará una recomendación de acuerdo a la cantidad de calorías consumidas y su IMC, al requerir de una base de datos para realizar esta acción, se realizará en un futuro(por lo que es una funcionalidad CRUD). 
 
-# Comentario : 
-- A los archivos vidasana.js, meditacion.js y ejercicio.js se les genera una linea de codigo extra al hacer watch con tsc y actualisar el js.
+# Comentario: 
+- A los archivos vidasana.js, meditacion.js y ejercicio.js se les genera una línea de código extra al hacer watch con tsc y actualizar el js. Esto produce que los vídeos no se puedan visualizar. Sin embargo, no debería producir inconvenientes al visualizar la entrega una vez realizada.
