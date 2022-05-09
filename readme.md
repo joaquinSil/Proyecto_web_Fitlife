@@ -18,3 +18,6 @@ Diseño de las interfaces en Figma: https://www.figma.com/file/ETKJEMAzmnMtbCbtN
 - Sistema de contacto: el usuario podrá enviar mensajes de forma directa a los encargados de la página web, y si posee cuenta en la página, podrá recibir una notificación a esta, además de modificar o eliminar los mensajes que haya enviado (por lo que es una funcionalidad CRUD).
 - Calculadora IMC: Permitirá calcular el Indice de Masa Corporal de los usuarios, y estos se almacenarán si el usuario posee una cuenta en la plataforma.
 - Registro de las calorías: el usuario podrá registrar y modificar las calorías que consume en un día, y si posee cuenta en la página se le hará una recomendación de acuerdo a la cantidad de calorías consumidas y su IMC, al requerir de una base de datos para realizar esta acción, se realizará en un futuro(por lo que es una funcionalidad CRUD). 
+
+# Comentario : 
+- A los archivos vidasana.js, meditacion.js y ejercicio.js se les genera una linea de codigo extra al hacer watch con tsc y actualisar el js.
