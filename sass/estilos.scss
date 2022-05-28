@@ -1,3 +1,4 @@
+/* HEADER---------------------------------------------*/
 
 .row {
     display: flex;
@@ -6,11 +7,17 @@
         background-color: #9a9cea;
     }
 }
+/* HEADER---------------------------------------------*/
+
+/* GENRAL---------------------------------------------*/
+
 
 body {
     height: 100%;
     background-color: #f2f2f2;
 }
+/* GENRAL---------------------------------------------*/
+
 
 $container-max-widths: (
   sm: 540px,
@@ -19,6 +26,8 @@ $container-max-widths: (
   xl: 1140px,
   xxl: 1320px
 );
+
+/* INDEX---------------------------------------------*/
 
 aside {
     width: 30%;
@@ -35,6 +44,10 @@ aside {
     }
 }
 
+/* INDEX---------------------------------------------*/
+
+
+/* HEADER---------------------------------------------*/
 nav {
     list-style-type: none;
     margin: 0;
@@ -70,6 +83,7 @@ nav {
     }
 }
 
+
 li {
     list-style-type: none;
     a:hover {
@@ -79,6 +93,11 @@ li {
         color: red;
     }
 }
+
+/* HEADER---------------------------------------------*/
+
+/* GENRAL---------------------------------------------*/
+
 h1 {
     font-size: 70px;
     text-align: center;
@@ -94,13 +113,21 @@ h2 {
     margin-top: 15px;
 }
 
+/* GENRAL---------------------------------------------*/
+
+
+/* FOOTER---------------------------------------------*/
+
 footer {
     background-color: #a2b9ee;
     color: #f2f2f2;;
     font-family: 'Amatic SC';
     font-size: 20px;
 }
+/* FOOTER---------------------------------------------*/
 
+
+/* INDEX---------------------------------------------*/
 section{
     font-family: 'Montserrat';
     font-size: 16px;  
@@ -123,7 +150,10 @@ section{
         height: 600px;
     }
 }
+/* INDEX---------------------------------------------*/
 
+
+/* EJERCICIO---------------------------------------------*/
 #ejercicio {
     ul {
         display: flex;
@@ -135,11 +165,21 @@ section{
         }
     }
 }
+
+/* EJERCICIO---------------------------------------------*/
+
+/* NO SE ---------------------------------------------*/
+
 label{
     font-size: 20px;
     display: inline-block;
     width: 70px;
 }
+/* NO SE ---------------------------------------------*/
+
+
+/* formulario VIDA SANA Y CONTACTO---------------------------------------------*/
+
 
 #Formulario{
     margin-top: 15px;
@@ -148,6 +188,11 @@ label{
     margin-bottom: 15px;
     
 }
+
+/* formulario VIDA SANA Y CONTACTO---------------------------------------------*/
+
+/* MEDITACION---------------------------------------------*/
+
 
 #meditacionMusica {
     display: flex;
@@ -169,8 +214,8 @@ label{
         }
     }
 }
-
-
+/* MEDITACION---------------------------------------------*/
+/* NUTRICION---------------------------------------------*/
 
 #dieta{
     ul {
@@ -185,6 +230,10 @@ label{
         }
     }
 }
+/* NUTRICION---------------------------------------------*/
+
+
+/* NUTRICION EJERCICIO MEDITACION---------------------------------------------*/
 
 div.figure {
     width: 25%;
@@ -196,6 +245,9 @@ div.figure {
         text-indent: 0;
     }
 }
+
+/* calculadora NUTRICION---------------------------------------------*/
+
 
 div.calculadora{
     
@@ -221,6 +273,11 @@ div.calculadora{
     }
 
 }
+
+/* calculadora NUTRICION---------------------------------------------*/
+
+
+/* CONTACTO---------------------------------------------*/
 
 div.contacto{
     background: #f2f2f2;
@@ -388,7 +445,8 @@ div.ventana{
         }
     }
 }
-
+/* CONTACTO---------------------------------------------*/
+/* LOGIN---------------------------------------------*/
 
 #login{
     margin: 0;
@@ -542,3 +600,5 @@ div.ventana{
         }
     }
 }
+
+/* LOGIN---------------------------------------------*/

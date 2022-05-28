@@ -1,0 +1,57 @@
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.row .column {
+  -webkit-box-flex: 50%;
+      -ms-flex: 50%;
+          flex: 50%;
+  background-color: #9a9cea;
+}
+
+nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #a2b9ee;
+}
+
+nav div a {
+  display: block;
+  color: #c6c6c6;
+  font-family: 'Amatic SC';
+  font-size: 24px;
+  text-align: center;
+  text-decoration: none;
+}
+
+nav li {
+  float: left;
+  margin: auto 7%;
+  font-family: 'Amatic SC';
+  font-size: 24px;
+}
+
+nav li a {
+  display: block;
+  color: #c6c6c6;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+li a:hover {
+  background-color: #a2dcee;
+}
+
+li a:visited {
+  color: red;
+}
+/*# sourceMappingURL=header.component.css.map */

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAEI,UAFM,CAEN,EAAE,CAAC;EACC,OAAO,EAAE,IAAI;CAOhB;;AAVL,AAKQ,UALE,CAEN,EAAE,CAGE,KAAK,CAAC;EACF,WAAW,EAAE,IAAI;EACjB,YAAY,EAAE,IAAI;EAClB,aAAa,EAAE,IAAI;CACtB",
+    "sources": [
+        "../src/app/ejercicio/ejercicio.component.scss"
+    ],
+    "names": [],
+    "file": "ejercicio.component.css"
+}

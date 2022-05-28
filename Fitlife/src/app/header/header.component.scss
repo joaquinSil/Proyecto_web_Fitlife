@@ -1,0 +1,52 @@
+.row {
+    display: flex;
+    .column {
+        flex: 50%;
+        background-color: #9a9cea;
+    }
+}
+
+nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #a2b9ee;
+
+    div{
+        a {
+        display: block;
+        color: #c6c6c6;
+        font-family: 'Amatic SC';
+        font-size: 24px;
+        text-align: center;
+        text-decoration: none;
+
+        }
+    }
+
+    li {
+        float: left;
+        margin: auto 7%;
+        font-family: 'Amatic SC';
+        font-size: 24px;
+
+        a {
+            display: block;
+            color: #c6c6c6;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+    }
+}
+
+li {
+    list-style-type: none;
+    a:hover {
+        background-color: #a2dcee;
+    }
+    a:visited {
+        color: red;
+    }
+}

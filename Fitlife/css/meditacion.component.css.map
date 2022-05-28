@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,iBAAiB,CAAC;EACd,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;CAE1B;;AAED,AAEI,WAFO,CAEP,EAAE,CAAC;EACC,OAAO,EAAE,IAAI;CAShB;;AAZL,AAKQ,WALG,CAEP,EAAE,CAGE,KAAK,CAAC;EAEF,WAAW,EAAE,IAAI;EACjB,YAAY,EAAE,IAAI;EAClB,aAAa,EAAE,IAAI;CAEtB",
+    "sources": [
+        "../src/app/meditacion/meditacion.component.scss"
+    ],
+    "names": [],
+    "file": "meditacion.component.css"
+}
