@@ -9,15 +9,15 @@
     <div class="carousel-inner">
 
         <div class="item active">
-            <img src="images/señora meditacion.opdownload" alt="ejercicio">
+            <img src="assets/señora meditacion.opdownload" alt="ejercicio">
         </div>
 
         <div class="item">
-            <img src="images/ejercicio1.jpg" alt="nutricion">
+            <img src="assets/ejercicio1.jpg" alt="nutricion">
         </div>
 
         <div class="item">
-            <img src="images/naranja.jpg" alt="meditacion">
+            <img src="assets/naranja.jpg" alt="meditacion">
         </div>
 
     </div>
@@ -41,10 +41,10 @@
   <h3>¿Qué es FitLife?</h3>
   <aside>
     Accede a nuestro contenido:
-    <a class="nav-link" href="login.html" style="color: black;">Regístrate</a>
-    <a class="nav-link" href="ejercicio.html" style="color: black;">Rutinas de ejercicio</a>
-    <a class="nav-link" href="meditacion.html" style="color: black;">Meditaciones guiadas</a>
-    <a class="nav-link" href="vidasana.html" style="color: black;">Calcula tu IMC y revisa nuestras guías de nutrición</a>
+    <a class="nav-link" [routerLink]="['/login']" style="color: black;">Regístrate</a>
+    <a class="nav-link" [routerLink]="['/ejercicio']" style="color: black;">Rutinas de ejercicio</a>
+    <a class="nav-link" [routerLink]="['/meditacion']" style="color: black;">Meditaciones guiadas</a>
+    <a class="nav-link" [routerLink]="['/nutricion']" style="color: black;">Calcula tu IMC y revisa nuestras guías de nutrición</a>
   </aside>
   Fitlife es una web que te ayudará en tu transcurso a una vida más sana y satisfactoria. 
   <br>En ella encontrarás diversos recursos, tales como rutinas de ejercicios, dietas y meditaciones,
