@@ -2,6 +2,7 @@
     
     ul {
         display: flex;
+        list-style: none;
         
         video {
             margin-left: 15px;
@@ -9,9 +10,6 @@
             margin-bottom: 15px;
             display: none;
         }
-    }
-    li {
-        
     }
 }
 

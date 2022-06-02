@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import {Video} from '../video';
+import {default as listaVideosNutricion} from '../listaVideo.json'
 
 @Component({
   selector: 'app-nutricion',
@@ -12,9 +13,12 @@ export class NutricionComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    let listaVideosNutricion = Array <Video>();
+    //let listaVideosNutricion = Array <Video>();
+    //let listaVideosNutricion = require('../listaVideos.json');
 
-    listaVideosNutricion =[
+    //let listaVideosNutricion = JSON.parse(videosNutricion);
+
+    /*listaVideosNutricion =[
       {
         "nombre":"Dieta Keto",
         "link":"https://www.youtube.com/embed/UfyESkhHDmQ" ,
@@ -39,17 +43,18 @@ export class NutricionComponent implements OnInit {
         "ranking":0,
         "id":4,
       }   
-    ]
+    ]*/
 
     function ListarVideos()
     {
       let i:number;
       let listaDeVideos:any = document.getElementById("todas las dietas");
       let li:any=document.createElement("li");
-      for(i=0;i<listaVideosNutricion.length;i++)
+      let nutricion:any = listaVideosNutricion;
+      for(i=0;i<nutricion.length;i++)
       {
         let li:any=document.createElement("li");
-        listaDeVideos.appendChild(li).innerHTML=`<iframe width="320" height="240" src =" ${listaVideosNutricion[i].link}">` ;      
+        listaDeVideos.appendChild(li).innerHTML=`<iframe width="320" height="240" src =" ${nutricion[i].link}">` ;      
       }
     }
     

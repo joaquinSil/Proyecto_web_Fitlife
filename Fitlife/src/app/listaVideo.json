@@ -1,0 +1,22 @@
+{
+    "listaVideosDestacadosEjercicios": [
+        {
+        "nombre":"Rutina de abdomen",
+        "link":"https://drive.google.com/file/d/1pWN8cGyarrqfL06FXxA5i8p74_lkImll/preview",
+        "ranking":3,
+        "id":1
+        },    
+        {
+        "nombre":"Rutina de piernas",
+        "link":"https://www.youtube.com/embed/nKmH2Laeirk",
+        "ranking":3,
+        "id":2
+        },   
+        {
+        "nombre":"Rutina de brazos",
+        "link":"https://www.youtube.com/embed/HFm4mVhXCFI" ,
+        "ranking":3,
+        "id":3
+        }   
+    ]
+}

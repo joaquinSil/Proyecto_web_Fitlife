@@ -4,3 +4,4 @@ export interface Video {
     ranking:number;
     id:number;
 }
+

@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import {Video} from '../video';
 
-let listaVideosDestacadosEjercicios = Array <Video>();
-let listaVideosEjercicios = Array <Video>();
-
 @Component({
   selector: 'app-ejercicio',
   templateUrl: './ejercicio.component.html',
