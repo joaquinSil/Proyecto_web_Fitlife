@@ -50,11 +50,13 @@ export class NutricionComponent implements OnInit {
       let i:number;
       let listaDeVideos:any = document.getElementById("todas las dietas");
       let li:any=document.createElement("li");
-      let nutricion:any = listaVideosNutricion;
-      for(i=0;i<nutricion.length;i++)
+      let nutricion = listaVideosNutricion;
+      console.log(nutricion) ;
+      console.log(nutricion) ;
+      for(i=0;i<nutricion.listaVideosDestacadosEjercicios.length;i++)
       {
         let li:any=document.createElement("li");
-        listaDeVideos.appendChild(li).innerHTML=`<iframe width="320" height="240" src =" ${nutricion[i].link}">` ;      
+        listaDeVideos.appendChild(li).innerHTML=`<iframe width="320" height="240" src =" ${nutricion.listaVideosDestacadosEjercicios[i].link}">` ;      
       }
     }
     
