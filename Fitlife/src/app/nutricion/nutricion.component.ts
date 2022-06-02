@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import {Video} from '../video';
-import {default as listaVideosNutricion} from '../listaVideo.json'
+//import {default as listaVideosNutricion} from '../listaVideo.json'
+import {listaVideosDestacadosEjercicios} from '../listaVideo.json';
 
 @Component({
   selector: 'app-nutricion',
@@ -50,11 +51,11 @@ export class NutricionComponent implements OnInit {
       let i:number;
       let listaDeVideos:any = document.getElementById("todas las dietas");
       let li:any=document.createElement("li");
-      let nutricion:any = listaVideosNutricion;
-      for(i=0;i<nutricion.length;i++)
+      //let nutricion:any = listaVideosDestacadosEjercicios;
+      for(i=0;i<listaVideosDestacadosEjercicios.length;i++)
       {
         let li:any=document.createElement("li");
-        listaDeVideos.appendChild(li).innerHTML=`<iframe width="320" height="240" src =" ${nutricion[i].link}">` ;      
+        listaDeVideos.appendChild(li).innerHTML=`<iframe width="320" height="240" src =" ${listaVideosDestacadosEjercicios[i].link}">` ;      
       }
     }
     
