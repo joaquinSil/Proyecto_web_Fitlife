@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import {Video} from '../video';
+import {default as VideosEjercicios} from '../listaVideo.json'
 
 @Component({
   selector: 'app-ejercicio',
@@ -12,7 +13,7 @@ export class EjercicioComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    let listaVideosDestacadosEjercicios = Array <Video>();
+    /*let listaVideosDestacadosEjercicios = Array <Video>();
     let listaVideosEjercicios = Array <Video>();
 
     listaVideosDestacadosEjercicios =[
@@ -73,25 +74,27 @@ export class EjercicioComponent implements OnInit {
       "ranking":3,
       "id":6,
     }    
-    ];
+    ];*/
     function ListarVideosDestacados(){//aun no esta listo la funcinalidad de videos destacados
       let i:number;
       let listaDeVideos:any = document.getElementById("ejerciciosDestacados");
       let li:any=document.createElement("li");
-      for(i=0;i<listaVideosDestacadosEjercicios.length;i++)
+      let ejercicio = VideosEjercicios;
+      for(i=0;i<ejercicio.listaVideosDestacadosEjercicios.length;i++)
       {
         let li:any=document.createElement("li");
-        listaDeVideos.appendChild(li).innerHTML=`<iframe width="320" height="240" src =" ${listaVideosDestacadosEjercicios[i].link}">` ;
+        listaDeVideos.appendChild(li).innerHTML=`<iframe width="320" height="240" src =" ${ejercicio.listaVideosDestacadosEjercicios[i].link}">` ;
       }
     }
     function ListarVideos(){//aun no esta listo la funcinalidad de videos destacados
       let i:number;
       let listaDeVideos:any = document.getElementById("Todas las rutinas");
       let li:any=document.createElement("li");
-      for(i=0;i<listaVideosEjercicios.length;i++)
+      let ejercicio = VideosEjercicios;
+      for(i=0;i<ejercicio.listaVideosEjercicios.length;i++)
       {
         let li:any=document.createElement("li");
-        listaDeVideos.appendChild(li).innerHTML=`<iframe width="320" height="240" src =" ${listaVideosEjercicios[i].link}">` ;      
+        listaDeVideos.appendChild(li).innerHTML=`<iframe width="320" height="240" src =" ${ejercicio.listaVideosEjercicios[i].link}">` ;      
       }
     }
 

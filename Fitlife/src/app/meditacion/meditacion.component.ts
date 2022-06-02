@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import {Video} from '../video';
+import {default as VideosMeditacion} from '../listaVideo.json'
+
 
 @Component({
   selector: 'app-meditacion',
@@ -14,7 +16,7 @@ export class MeditacionComponent implements OnInit {
   ngOnInit(): void {
     let listaVideosMeditacion = Array <Video>();
 
-    listaVideosMeditacion =[
+    /*listaVideosMeditacion =[
       {
         "nombre":"Meditación con Mantras",
         "link":"https://www.youtube.com/embed/rUXYKagk8go" ,
@@ -33,17 +35,18 @@ export class MeditacionComponent implements OnInit {
         "ranking":0,
         "id":3,
       },    
-    ]
+    ]*/
 
     function ListarVideos()
     {
       let i:number;
       let listaDeVideos:any = document.getElementById("Todas las meditaciones");
       let li:any=document.createElement("li");
-      for(i=0;i<listaVideosMeditacion.length;i++)
+      let meditacion = VideosMeditacion;
+      for(i=0;i<meditacion.listaVideosMeditacion.length;i++)
       {
         let li:any=document.createElement("li");
-        listaDeVideos.appendChild(li).innerHTML=`<iframe width="320" height="240" src =" ${listaVideosMeditacion[i].link}">` ;      
+        listaDeVideos.appendChild(li).innerHTML=`<iframe width="320" height="240" src =" ${meditacion.listaVideosMeditacion[i].link}">` ;      
       }
     }
     window.addEventListener("load" ,ListarVideos);

@@ -18,5 +18,92 @@
         "ranking":3,
         "id":3
         }   
+    ],
+    
+    "listaVideosEjercicios":[
+        {
+          "nombre":"Rutina de abdomen",
+          "link":"https://drive.google.com/file/d/1pWN8cGyarrqfL06FXxA5i8p74_lkImll/preview",
+          "ranking":3,
+          "id":1
+        },    
+        {
+          "nombre":"Rutina de piernas",
+          "link":"https://www.youtube.com/embed/nKmH2Laeirk",
+          "ranking":3,
+          "id":2
+        },   
+        {
+          "nombre":"Rutina de brazos",
+          "link":"https://www.youtube.com/embed/HFm4mVhXCFI" ,
+          "ranking":3,
+          "id":3
+        },  
+        {
+          "nombre":"Rutina HITT 10 min",
+          "link":"https://www.youtube.com/embed/3A_27w5CR6A" ,
+          "ranking":3,
+          "id":4
+        },    
+        {
+          "nombre":"Rutina HITT 20 min",
+          "link":"https://drive.google.com/file/d/1VzQ432GzFU1xBIeqpqEEoo-i1MeGUl0a/preview",
+          "ranking":3,
+          "id":5
+        },   
+        {
+          "nombre":"Rutina HITT 30 min",
+          "link":"https://drive.google.com/file/d/12zal_N-672gMhi4sjjSP2x_d2Vy-KFqm/preview"  ,
+          "ranking":3,
+          "id":6
+        }    
+    ],
+
+    "listaVideosNutricion": [
+        {
+          "nombre":"Dieta Keto",
+          "link":"https://www.youtube.com/embed/UfyESkhHDmQ" ,
+          "ranking":0,
+          "id":1
+        },    
+        {
+          "nombre":"Dieta mediterránea",
+          "link":"https://www.youtube.com/embed/7kGXGPBD-pM",
+          "ranking":0,
+          "id":2
+        },   
+        {
+          "nombre":"Ayuno Intermitente",
+          "link":"https://www.youtube.com/embed/-ExoPSIybqE" ,
+          "ranking":0,
+          "id":3
+        },   
+        {
+          "nombre":"Dieta Vegetariana",
+          "link":"https://drive.google.com/file/d/1rJqEeIQ_jSYZSSwmOvkpKjy3sGDyouc-/preview" ,
+          "ranking":0,
+          "id":4
+        }   
+    ],
+
+    "listaVideosMeditacion": [
+        {
+          "nombre":"Meditación con Mantras",
+          "link":"https://www.youtube.com/embed/rUXYKagk8go" ,
+          "ranking":0,
+          "id":1
+        },    
+        {
+          "nombre":"Meditación Vipassana",
+          "link":"https://www.youtube.com/embed/1jkUKeR4m5A",
+          "ranking":0,
+          "id":2
+        },   
+        {
+          "nombre":"Meditación Zen",
+          "link":"https://drive.google.com/file/d/1O8VTe6UyzD-tcVwpqAS7AvQgGzUYOyq0/preview" ,
+          "ranking":0,
+          "id":3
+        }
     ]
 }
