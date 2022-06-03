@@ -8,6 +8,7 @@ import { MeditacionComponent } from './meditacion/meditacion.component';
 import { NutricionComponent } from './nutricion/nutricion.component';
 
 const routes: Routes = [
+  {path: '', redirectTo:'/home', pathMatch:'full'},
   {path:"home", component:HomeComponent},
   {path:"login", component:LoginComponent},
   {path:"contacto", component:ContactoComponent},

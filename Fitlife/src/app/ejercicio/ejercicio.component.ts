@@ -10,7 +10,7 @@ import {default as VideosEjercicios} from '../listaVideo.json'
 })
 export class EjercicioComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     
