@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  fotos=[
+    {"id":1,"ruta":"ejercicio1.jpg"},
+    {"id":2,"ruta":"ejercicio2.jpg"},
+    {"id":3,"ruta":"naranja.jpg"}
+  ]
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

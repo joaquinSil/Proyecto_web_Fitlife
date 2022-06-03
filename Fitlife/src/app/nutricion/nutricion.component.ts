@@ -25,7 +25,7 @@ export class NutricionComponent implements OnInit {
       for(i=0;i<nutricion.listaVideosNutricion.length;i++)
       {
         let li:any=document.createElement("li");
-        listaDeVideos.appendChild(li).innerHTML=`<iframe width="320" height="240" src =" ${nutricion.listaVideosNutricion[i].link}">` ;      
+        listaDeVideos.appendChild(li).innerHTML=`<iframe width="320" height="240" src =" ${nutricion.listaVideosNutricion[i].link}">` ;  
       }
     }
     
