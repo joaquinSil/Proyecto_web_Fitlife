@@ -22,8 +22,6 @@ export class NutricionComponent implements OnInit {
       let listaDeVideos:any = document.getElementById("todas las dietas");
       let li:any=document.createElement("li");
       let nutricion = VideosNutricion;
-      console.log(nutricion) ;
-      console.log(nutricion) ;
       for(i=0;i<nutricion.listaVideosNutricion.length;i++)
       {
         let li:any=document.createElement("li");
