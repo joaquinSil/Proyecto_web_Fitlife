@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import {Video} from '../video';
 import {default as VideosEjercicios} from '../listaVideo.json'
 
 @Component({
