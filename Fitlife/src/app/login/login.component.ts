@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-
-
+import { FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+import { FormControl } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { Validators } from '@angular/forms';
+import { ServicioService } from '../servicio.service';
+import { Usuarios } from '../usuarios';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +17,17 @@ import { Component, OnInit } from '@angular/core';
 
 export class LoginComponent implements OnInit {
 
-  constructor() {}
+  formulario:FormGroup;
+  constructor(public formB:FormBuilder, private servicio:ServicioService) { 
+    this.formulario=this.formB.group({
+      
+      nombre: ["", [Validators.required, Validators.maxLength(10)]],
+      correo: ["", Validators.required],
+      usuario: ["", Validators.required],
+      clave: ["", Validators.required],
+      admin: ["", Validators.required],
+    })
+  }
 
   ngOnInit(): void {
     
@@ -88,7 +104,22 @@ export class LoginComponent implements OnInit {
       }
 
     }
-
+    
+   
+    
   }
+  public generarNuevoUsuario(){
+    this.servicio.postFormulario({
+      
+      "nombre":this.formulario.get("nombre")?.value,
+      "correo":this.formulario.get("correo")?.value,
+      "usuario":this.formulario.get("usuario")?.value,
+      "clave":this.formulario.get("clave")?.value,
+      "admin":false
 
+    }).subscribe(respuesta=>{
+      console.log(respuesta);
+    });
+  }
+  
 }

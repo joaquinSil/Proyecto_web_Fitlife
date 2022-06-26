@@ -4,14 +4,13 @@ var bodyParser = require('body-parser');
 var mysql = require('mysql');
 var cors = require('cors');
 var Client = require('pg');
-var Client = require('pg');
 var app = express();
 var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
     port: 3306,
-    database: 'formulario'
+    database: 'xd'
 });
 connection.connect(function (err) {
     if (err) {
@@ -31,24 +30,25 @@ const configuracion = {
     port: 3000,
 };
 //Obtener todas las filas
-app.get('/formulario', bodyParser.json(), (request, response) => {
-    connection.query("SELECT * from formularios", function (error, results, fields) {
+app.get('/Usuarios', bodyParser.json(), (request, response) => {
+    connection.query("SELECT * from usuarios", function (error, results, fields) {
         response.send(results);
     });
 });
 //Obtener los datos de una fila segun el id
-app.get('/formulario/:id', bodyParser.json(), (request, response) => {
-    let id = request.params.id;
-    connection.query("select * from formularios where id=?", id, function (error, result, fields) {
+app.get('/Usuarios/:usuario', bodyParser.json(), (request, response) => {
+    let usuario = request.params.usuario;
+    connection.query("select * from usuarios where usuario=?", usuario, function (error, result, fields) {
         response.send(JSON.stringify(result));
     });
 });
 //Crear una fila
-app.post('/crearFormulario', bodyParser.json(), (request, response) => {
+app.post('/crearUsuarios', bodyParser.json(), (request, response) => {
+    let nombre = request.body.nombre;
+    let correo = request.body.correo;
     let usuario = request.body.usuario;
     let clave = request.body.clave;
-    let texto = request.body.texto;
-    connection.query("insert into formularios (usuario,clave,texto) values(?,?,?)", [usuario, clave, texto], function (error, result, fields) {
+    connection.query("insert into usuarios (nombre,correo,usuario,clave) values(?,?,?,?)", [nombre, correo, usuario, clave], function (error, result, fields) {
         response.send(JSON.stringify(`formulario creado ${result.insertId}`));
     });
 });
