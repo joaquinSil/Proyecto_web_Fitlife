@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import {enableProdMode} from '@angular/core';
 import { LoginComponent } from './login/login.component';
+import { Formularios } from './formularios';
 const httpOptions  ={ 
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 }
@@ -17,14 +18,19 @@ export class ServicioService {
 
   }
   servidor="http://127.0.0.1:3000";
-  getFormularios():Observable<any>{
-    console.log("xdddd");
-    return this.http.get(`${this.servidor}/Usuarios`);
-    //this.http.get(`${environment.hostname}/formulario`);
+  getUsuarios():Observable<any>{
+    return this.http.get(`${this.servidor}/getUsuarios`);
   }
-  postFormulario(datos:Usuarios):Observable<any>{
+  getFormularios():Observable<any>{
+    return this.http.get(`${this.servidor}/getFormularios`);
+  }
+  postUsuarios(datos:Usuarios):Observable<any>{
     console.log(datos);
     return this.http.post(`${this.servidor}/crearUsuarios`,JSON.stringify(datos),httpOptions);
+  }
+  postFormulario(datos:Formularios):Observable<any>{
+    console.log(datos);
+    return this.http.post(`${this.servidor}/crearFormulario`,JSON.stringify(datos),httpOptions);
   }
   enviarDatos(datos:Usuarios){//enviar los datos al back-end
     console.log(JSON.stringify(datos));

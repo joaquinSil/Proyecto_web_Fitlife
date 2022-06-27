@@ -7,6 +7,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { ServicioService } from '../servicio.service';
 import { Usuarios } from '../usuarios';
+import TreeMap from 'ts-treemap'
+import { PuenteEntreComponentesService } from '../puente-entre-componentes.service';
 
 @Component({
   selector: 'app-login',
@@ -17,9 +19,25 @@ import { Usuarios } from '../usuarios';
 
 export class LoginComponent implements OnInit {
 
-  formulario:FormGroup;
-  constructor(public formB:FormBuilder, private servicio:ServicioService) { 
-    this.formulario=this.formB.group({
+  formularioRegistro:FormGroup;
+  formularioLogIn:FormGroup;
+  datosHtml:Usuarios;
+  mostrarFormulario:boolean = false;
+  datosHTML = new TreeMap<string, Usuarios>()
+  //datosHTML:Array<Usuarios>=[];
+  constructor(public formR:FormBuilder,public formL:FormBuilder, private servicio:ServicioService, private puenteComponentes:PuenteEntreComponentesService) { 
+    this.datosHtml = ({
+      nombre: "asd",
+      correo: "asd",
+      usuario: "asd",
+      clave: "asd",
+      admin: false
+    })
+    this.formularioLogIn=this.formL.group({
+      correo: ["", Validators.required],
+      clave: ["", Validators.required],
+    })
+    this.formularioRegistro=this.formR.group({
       
       nombre: ["", [Validators.required, Validators.maxLength(10)]],
       correo: ["", Validators.required],
@@ -27,6 +45,7 @@ export class LoginComponent implements OnInit {
       clave: ["", Validators.required],
       admin: ["", Validators.required],
     })
+    
   }
 
   ngOnInit(): void {
@@ -47,7 +66,7 @@ export class LoginComponent implements OnInit {
 
     function anchoPage(){
 
-      if (window.innerWidth > 850){
+      if (window.innerWidth > 950){
         caja_trasera_register.style.display = "block";
         caja_trasera_login.style.display = "block";
       }else{
@@ -105,16 +124,51 @@ export class LoginComponent implements OnInit {
 
     }
     
-   
     
+  
   }
+  private validacion(flag:number){
+    if(flag == 101){
+      //this.mostrarFormulario = 101;
+    }
+  }
+  public iniciarSecionUsuario(){
+    this.servicio.getUsuarios().subscribe(datosBackEnd=>{
+      for(let i=0; i<datosBackEnd.length ;i++)
+      {
+        this.datosHTML.set(datosBackEnd[i].correo,datosBackEnd[i]);
+      }
+      var correo = this.formularioLogIn.get("correo")?.value;
+      var clave = this.formularioLogIn.get("clave")?.value;
+      var datosUsuario = this.datosHTML.get(correo) ;
+      if(correo != this.datosHTML.get(correo)?.correo){
+        console.log("correo incorrecto o clave incorrecta");
+        
+      }
+      if(clave != this.datosHTML.get(correo)?.clave){
+        
+        console.log("correo incorrecto o clave incorrecta");
+      }
+      if(correo == datosUsuario?.correo && clave == datosUsuario?.clave){
+        console.log("Sesion Iniciada")
+        if(datosUsuario?.admin == true){
+          this.puenteComponentes.setEstadoAdmin(true);
+        }else{
+          this.puenteComponentes.setEstadoAdmin(false);
+        }
+        //console.log(datosUsuario?.admin);
+        
+      }
+    });
+  }
+
   public generarNuevoUsuario(){
-    this.servicio.postFormulario({
+    this.servicio.postUsuarios({
       
-      "nombre":this.formulario.get("nombre")?.value,
-      "correo":this.formulario.get("correo")?.value,
-      "usuario":this.formulario.get("usuario")?.value,
-      "clave":this.formulario.get("clave")?.value,
+      "nombre":this.formularioRegistro.get("nombre")?.value,
+      "correo":this.formularioRegistro.get("correo")?.value,
+      "usuario":this.formularioRegistro.get("usuario")?.value,
+      "clave":this.formularioRegistro.get("clave")?.value,
       "admin":false
 
     }).subscribe(respuesta=>{
@@ -122,4 +176,5 @@ export class LoginComponent implements OnInit {
     });
   }
   
+ 
 }

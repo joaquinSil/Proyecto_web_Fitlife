@@ -1,4 +1,4 @@
-<div class="contacto">
+<div class="contacto" *ngIf="!verificarAdmin()">
 
     <div class="contenedor">
 
@@ -38,12 +38,12 @@
                 </div>                
             </div>
             
-            <form action="" method="GET" class="formulario" id="formulario">
+            <form action="" method="GET" class="formulario" id="formulario" [formGroup]="formularioContacto" (ngSubmit) = "generarNuevoComentario()" novalidate>
             
-                <input type="text" name="nombre" placeholder="Nombre" id="nombre">
-                <input type="text" name="correo" placeholder="Correo" id="correo">
-                <input type="text" name="asunto" placeholder="Asunto" id="asunto">
-                <textarea name="mensaje" id="mensaje" placeholder="Mensaje"></textarea>
+                <input type="text" formControlName="nombre" placeholder="Nombre" id="nombre">
+                <input type="text" formControlName="correo" placeholder="Correo" id="correo">
+                <input type="text" formControlName="asunto" placeholder="Asunto" id="asunto">
+                <textarea name="mensaje" formControlName="mensaje" id="mensaje" placeholder="Mensaje"></textarea>
 
                 <button type="submit" id="btn">Enviar</button>
             
@@ -51,16 +51,26 @@
         </div>
     </div> 
 </div>
-<table>
-    <tr>
-        <th>nombre</th>
-        <th>texto </th>
-    </tr>
-    <tr *ngFor="let item of datosHTML">
-        <td>{{item.usuario}}</td>
-        <td>{{item.clave}}</td>
+<div *ngIf="verificarAdmin()">
+    <h2>Formularios de contacto realizados por los usuarios</h2>
+    <table >
         
-    </tr>
-</table>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<script src="js/contacto.js" async></script>
+        <tr>
+            <th>id</th>
+            <th>nombre</th>
+            <th>correo</th>
+            <th>asunto</th>
+            <th>mensaje</th>
+        </tr>
+        <tr *ngFor="let item of datosHTML">
+            <td>{{item.id}}</td>
+            <td>{{item.nombre}}</td>
+            <td>{{item.correo}}</td>
+            <td>{{item.asunto}}</td>
+            <td>{{item.mensaje}}</td>
+            
+        </tr>
+    </table>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="js/contacto.js" async></script>
+</div>

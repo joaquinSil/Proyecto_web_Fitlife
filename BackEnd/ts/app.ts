@@ -34,15 +34,22 @@ const configuracion ={
   port: 3000,
 }
 //Obtener todas las filas
-app.get('/Usuarios',bodyParser.json(), (request:any, response:any) => {
+app.get('/getUsuarios',bodyParser.json(), (request:any, response:any) => {
   connection.query("SELECT * from usuarios", function(error:any, results:any, fields:any){
     response.send(results);
   })
 })
+app.get('/getFormularios',bodyParser.json(), (request:any, response:any) => {
+  connection.query("SELECT * from contacto", function(error:any, results:any, fields:any){
+    response.send(results);
+  })
+})
 //Obtener los datos de una fila segun el id
-app.get('/Usuarios/:usuario',bodyParser.json(), (request:any, response:any) => {
-  let usuario=request.params.usuario;
-  connection.query("select * from usuarios where usuario=?", usuario, function(error:any, result:any, fields:any){
+app.get('/getUsuario',bodyParser.json(), (request:any, response:any) => {
+  //console.log("correo");
+  let correo=request.params.correo;
+  console.log(correo);
+  connection.query("select * from usuarios where correo=?", correo, function(error:any, result:any, fields:any){
     response.send(JSON.stringify(result));
   })
 })
@@ -55,6 +62,18 @@ app.post('/crearUsuarios',bodyParser.json(),(request:any,response:any)=>{
   
 
   connection.query("insert into usuarios (nombre,correo,usuario,clave) values(?,?,?,?)", [nombre,correo,usuario,clave], function(error:any, result:any, fields:any){
+    response.send(JSON.stringify(`formulario creado ${result.insertId}`));
+  })
+});
+app.post('/crearFormulario',bodyParser.json(),(request:any,response:any)=>{
+  console.log("xddddd");
+  let nombre=request.body.nombre;
+  let correo=request.body.correo;
+  let asunto=request.body.asunto;
+  let mensaje=request.body.mensaje;
+  console.log(nombre,correo,asunto,mensaje);
+
+  connection.query("insert into contacto (nombre,correo,asunto,mensaje) values(?,?,?,?)", [nombre,correo,asunto,mensaje], function(error:any, result:any, fields:any){
     response.send(JSON.stringify(`formulario creado ${result.insertId}`));
   })
 });

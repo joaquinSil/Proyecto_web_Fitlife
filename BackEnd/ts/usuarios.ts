@@ -3,4 +3,5 @@ export interface Usuarios {
     correo:String;
     usuario:String;
     clave:String;
+    admin:boolean;
 }
