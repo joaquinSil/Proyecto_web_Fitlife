@@ -1,15 +1,42 @@
-#ejercicio {
-    
-    ul {
+div#ejercicio{
+    ul.listaVideos {
+
         display: flex;
         list-style: none;
-        
-        video {
+        justify-content: center;
+        align-items: center;
+        margin: auto 5%;
+        padding: auto 5%;
+        width: 90%;
+        overflow: hidden;
+                
+        li {
+            /*
             margin-left: 15px;
             margin-right: 15px;
-            margin-bottom: 15px;
-            display: none;
+            margin-bottom: 15px;*/
+            margin: auto 5%;
+            padding: auto 5%;
+            width: 90%;
+            //display: flex;
+            //justify-items: auto;
         }
     }
 }
 
+@media (max-width: 1020px){
+    div#ejercicio{
+        align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+        ul.listaVideos {
+            display:block;
+            justify-content: center;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+            //vertical-align: middle;
+        }
+    }
+}

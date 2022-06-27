@@ -9,7 +9,7 @@
 
     <div class="carousel-inner">
         <div class="item active">
-            <img src="assets/señora meditacion.opdownload" alt="ejercicio">
+            <img src="assets/señora meditacion.opdownload" alt="ejercicio" class="img-fluid">
         </div>
         <div *ngFor="let item of fotos" class="item">
             <img src="../../assets/{{item.ruta}}">
@@ -31,23 +31,23 @@
 </div>
 
 <section>
-  <h3>¿Qué es FitLife?</h3>
-  <aside>
-    Accede a nuestro contenido:
-    <a class="nav-link" [routerLink]="['/login']" style="color: black;">Regístrate</a>
-    <a class="nav-link" [routerLink]="['/ejercicio']" style="color: black;">Rutinas de ejercicio</a>
-    <a class="nav-link" [routerLink]="['/meditacion']" style="color: black;">Meditaciones guiadas</a>
-    <a class="nav-link" [routerLink]="['/nutricion']" style="color: black;">Calcula tu IMC y revisa nuestras guías de nutrición</a>
-  </aside>
-  Fitlife es una web que te ayudará en tu transcurso a una vida más sana y satisfactoria. 
-  <br>En ella encontrarás diversos recursos, tales como rutinas de ejercicios, dietas y meditaciones,
-  <br>las cuales garantizarán que tu salud mejore y generes un cambio en tu vida del cual no te arrepentirás.
-  <h3>Servicios</h3>
-  FitLife no sólo te ayudará en tu transcurso a una vida más sana a través de sus guías y recursos,
-  <br>también te permitirá llevar un registro de tus progresos. 
-  <br>Al realizar tu registro, tendrás acceso a nuestro sistema de registro diario de calorías, en el cual
-  <br>podrás mantener un registro de tu alimentación diaria. Además podrás registrar tu IMC tantas veces como
-  <br>quieras, permitiéndote visualizar tus progresos a lo largo del tiempo.
-</section>
+    <h3>¿Qué es FitLife?</h3>
+    <aside>
+        Accede a nuestro contenido:
+        <a class="nav-link" [routerLink]="['/login']" style="color: black;">Regístrate</a>
+        <a class="nav-link" [routerLink]="['/ejercicio']" style="color: black;">Rutinas de ejercicio</a>
+        <a class="nav-link" [routerLink]="['/meditacion']" style="color: black;">Meditaciones guiadas</a>
+        <a class="nav-link" [routerLink]="['/nutricion']" style="color: black;">Calcula tu IMC y revisa nuestras guías de nutrición</a>
+    </aside>
+    Fitlife es una web que te ayudará en tu transcurso a una vida más sana y satisfactoria. 
+    <br>En ella encontrarás diversos recursos, tales como rutinas de ejercicios, dietas y meditaciones,
+    <br>las cuales garantizarán que tu salud mejore y generes un cambio en tu vida del cual no te arrepentirás.
+    <h3>Servicios</h3>
+    FitLife no sólo te ayudará en tu transcurso a una vida más sana a través de sus guías y recursos,
+    <br>también te permitirá llevar un registro de tus progresos. 
+    <br>Al realizar tu registro, tendrás acceso a nuestro sistema de registro diario de calorías, en el cual
+    <br>podrás mantener un registro de tu alimentación diaria. Además podrás registrar tu IMC tantas veces como
+    <br>quieras, permitiéndote visualizar tus progresos a lo largo del tiempo.
+    </section>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

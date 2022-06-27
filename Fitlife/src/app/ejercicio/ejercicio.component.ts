@@ -26,10 +26,18 @@ export class EjercicioComponent implements OnInit {
     }
     function ListarVideos(){//aun no esta listo la funcinalidad de videos destacados
       let i:number;
-      let listaDeVideos:any = document.getElementById("Todas las rutinas");
+      let listaDeVideos:any = document.getElementById("Todas las rutinasA");
       let li:any=document.createElement("li");
       let ejercicio = VideosEjercicios;
-      for(i=0;i<ejercicio.listaVideosEjercicios.length;i++)
+      for(i=0;i<3;i++)
+      {
+        let li:any=document.createElement("li");
+        listaDeVideos.appendChild(li).innerHTML=`<iframe width="320" height="240" src =" ${ejercicio.listaVideosEjercicios[i].link}">` ;      
+      }
+
+      listaDeVideos= document.getElementById("Todas las rutinasB");
+
+      for(i=3;i<ejercicio.listaVideosEjercicios.length;i++)
       {
         let li:any=document.createElement("li");
         listaDeVideos.appendChild(li).innerHTML=`<iframe width="320" height="240" src =" ${ejercicio.listaVideosEjercicios[i].link}">` ;      

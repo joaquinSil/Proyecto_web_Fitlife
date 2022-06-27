@@ -2,6 +2,12 @@
     ul {
         display: flex;
         list-style: none;
+        justify-content: center;
+        align-items: center;
+        margin: auto 5%;
+        padding: auto 5%;
+        width: 90%;
+        overflow: hidden;
 
         video {
 
@@ -12,6 +18,28 @@
         }
     }
 }
+
+
+@media (max-width: 1020px){
+    div#dieta{
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+
+        ul.listaVideos {
+
+            display:block;
+            justify-content: center;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+            //vertical-align: middle;
+        }
+    }
+}
+
+
 div.calculadora{
     
     font-family: 'Open Sans',sans-serif;
@@ -28,7 +56,6 @@ div.calculadora{
             display: flex;
             width: 100%;
             overflow: hidden;
-            display: flex;
             justify-content: center;
             align-items: center;
         }
