@@ -5,7 +5,7 @@
         </div>
     </div> 
 
-    <!--<div class="collapse navbar-collapse" id="navbarColor02"> -->
+    <!--<div class="collapse navbar-collapse" id="navbarColor02">navbar-light -->
     
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">  
@@ -30,13 +30,13 @@
               <a class="nav-link" [routerLink]="['/contacto']">Contacto</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/login']">Iniciar sesión</a>
+              <a class="nav-link" *ngIf="!getConectadoActual()" [routerLink]="['/login']">Iniciar sesión</a>
             </li>
             <li class="nav-item" *ngIf="getConectadoActual()">
               <p> iniciada como {{getUsuario()}}</p>
             </li>
             <li class="nav-item" *ngIf="getConectadoActual()" >
-              <button type="submit" (click)="eliminarCuenta()">eliminar cuenta</button>
+              <button class="btn-outline-success" type="submit" (click)="eliminarCuenta()">eliminar cuenta</button>
             </li>
             
           </ul>
