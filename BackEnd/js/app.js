@@ -81,7 +81,7 @@ app.put('/actualizar', jsonParser, bodyParser.json(), (request, response) => {
         response.send(JSON.stringify(`formulario creado ${result.update}`));
     });
 });
-app.delete('/eliminarUsuario',  (req, res) => {
+app.delete('/eliminarUsuario', bodyParser.json(), (req, res) => {
     console.log("xdddd");
     //console.log(req);
     let correo = "asdasd";

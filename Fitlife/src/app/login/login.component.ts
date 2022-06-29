@@ -140,10 +140,11 @@ export class LoginComponent implements OnInit {
       var datosUsuario;
       for(let i=0; i<datosBackEnd.length ;i++)
       {
+        
+        this.datosHTML.push(datosBackEnd[i]);
         if(this.datosHTML[i].correo==correo){
           datosUsuario = this.datosHTML[i] ;
         }
-        this.datosHTML.push(datosBackEnd[i]);
       }      
       
       if(correo != datosUsuario?.correo){

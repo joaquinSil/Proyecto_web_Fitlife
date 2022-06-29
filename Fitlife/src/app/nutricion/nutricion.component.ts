@@ -10,7 +10,7 @@ import {default as VideosNutricion} from '../listaVideo.json'
   styleUrls: ['./nutricion.component.scss']
 })
 export class NutricionComponent implements OnInit {
-
+  flag:number = 0;
   constructor() { }
 
   ngOnInit(): void {
@@ -66,12 +66,16 @@ export class NutricionComponent implements OnInit {
     });*/
     
 
-    function ListarVideos()
-    {
-      let i:number;
-      let listaDeVideos:any = document.getElementById("todas las dietas");
-      let li:any=document.createElement("li");
-      let nutricion = VideosNutricion;
+    
+    
+    //window.addEventListener("load" ,ListarVideos);
+  }
+  public ListarVideos(){
+    let i:number;
+    let listaDeVideos:any = document.getElementById("Todas las rutinasA");
+    let li:any=document.createElement("li");
+    let nutricion = VideosNutricion;
+    if(this.flag == 0){
       for(i=0;i<2;i++)
       {
         let li:any=document.createElement("li");
@@ -85,9 +89,8 @@ export class NutricionComponent implements OnInit {
         let li:any=document.createElement("li");
         listaDeVideos.appendChild(li).innerHTML=`<iframe width="320" height="240" src =" ${nutricion.listaVideosNutricion[i].link}" >` ;  
       }
+      this.flag =1;
     }
     
-    window.addEventListener("load" ,ListarVideos);
   }
-
 }
