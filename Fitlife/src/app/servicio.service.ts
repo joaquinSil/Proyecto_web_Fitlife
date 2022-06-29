@@ -32,7 +32,11 @@ export class ServicioService {
     console.log(datos);
     return this.http.post(`${this.servidor}/crearFormulario`,JSON.stringify(datos),httpOptions);
   }
-  enviarDatos(datos:Usuarios){//enviar los datos al back-end
+  /*enviarDatos(datos:Usuarios){//enviar los datos al back-end
     console.log(JSON.stringify(datos));
+  }*/
+  eliminarUsuario(data:Usuarios):Observable<any>{
+    console.log(data);
+    return this.http.delete(`${this.servidor}/eliminarUsuario`);//,JSON.stringify(data));
   }
 }

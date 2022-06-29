@@ -32,6 +32,13 @@
             <li class="nav-item">
               <a class="nav-link" [routerLink]="['/login']">Iniciar sesión</a>
             </li>
+            <li class="nav-item" *ngIf="getConectadoActual()">
+              <p> iniciada como {{getUsuario()}}</p>
+            </li>
+            <li class="nav-item" *ngIf="getConectadoActual()" >
+              <button type="submit" (click)="eliminarCuenta()">eliminar cuenta</button>
+            </li>
+            
           </ul>
         </div>
       </div>

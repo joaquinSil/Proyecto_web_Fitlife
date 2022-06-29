@@ -40,6 +40,7 @@ app.get('/getUsuarios',bodyParser.json(), (request:any, response:any) => {
   })
 })
 app.get('/getFormularios',bodyParser.json(), (request:any, response:any) => {
+  console.log("xdd");
   connection.query("SELECT * from contacto", function(error:any, results:any, fields:any){
     response.send(results);
   })
@@ -78,7 +79,7 @@ app.post('/crearFormulario',bodyParser.json(),(request:any,response:any)=>{
   })
 });
 //Actualizar una fila
-app.put('/actualizar',jsonParser,(request:any,response:any)=>{
+app.put('/actualizar',jsonParser,bodyParser.json(),(request:any,response:any)=>{
   let id=request.params.id;
   let usuario=request.body.usuarios;
   let clave=request.body.clave;
@@ -89,9 +90,12 @@ app.put('/actualizar',jsonParser,(request:any,response:any)=>{
   })
 })
 
-app.delete('/eliminarFormulario', (req:any,res:any)=> {
-  let id = req.body.id;
-  connection.query("DELETE FROM `usuarios` WHERE id=?",id,(req1:any,res1:any)=>{
+app.delete('/eliminarUsuario',bodyParser.json(), (req:any,res:any)=> {
+  console.log("xdddd");
+  //console.log(req);
+  let correo = "asdasd"; 
+  console.log("xdddd")
+  connection.query("DELETE FROM `usuarios` WHERE correo=?",correo,(req1:any,res1:any)=>{
       res.status(200).send("Usuario Eliminado");
   });
 });

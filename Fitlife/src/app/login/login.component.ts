@@ -140,7 +140,8 @@ export class LoginComponent implements OnInit {
       }
       var correo = this.formularioLogIn.get("correo")?.value;
       var clave = this.formularioLogIn.get("clave")?.value;
-      var datosUsuario = this.datosHTML.get(correo) ;
+      
+      let datosUsuario = this.datosHTML.get(correo) ;
       if(correo != this.datosHTML.get(correo)?.correo){
         console.log("correo incorrecto o clave incorrecta");
         
@@ -151,8 +152,14 @@ export class LoginComponent implements OnInit {
       }
       if(correo == datosUsuario?.correo && clave == datosUsuario?.clave){
         console.log("Sesion Iniciada")
+        this.puenteComponentes.setUsuario(datosUsuario?.nombre);
+        this.puenteComponentes.setclave(datosUsuario?.clave);
+        this.puenteComponentes.setNombreUsuario(datosUsuario?.usuario);
+        this.puenteComponentes.setConectado(true);
+        this.puenteComponentes.setCorreoUsuario(datosUsuario?.correo);
         if(datosUsuario?.admin == true){
           this.puenteComponentes.setEstadoAdmin(true);
+          
         }else{
           this.puenteComponentes.setEstadoAdmin(false);
         }
