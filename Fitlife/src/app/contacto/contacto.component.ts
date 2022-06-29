@@ -6,7 +6,7 @@ import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Input } from '@angular/core';
 import { PuenteEntreComponentesService } from '../puente-entre-componentes.service';
-import { data } from 'jquery';
+//import {data}  from 'jquery';
 import { Formularios } from '../formularios';
 @Component({
   selector: 'app-contacto',

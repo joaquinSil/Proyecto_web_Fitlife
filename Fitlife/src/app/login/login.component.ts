@@ -7,7 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { ServicioService } from '../servicio.service';
 import { Usuarios } from '../usuarios';
-import TreeMap from 'ts-treemap'
+import TreeMap from "ts-treemap";
 import { PuenteEntreComponentesService } from '../puente-entre-componentes.service';
 
 @Component({
@@ -23,8 +23,8 @@ export class LoginComponent implements OnInit {
   formularioLogIn:FormGroup;
   datosHtml:Usuarios;
   mostrarFormulario:boolean = false;
-  datosHTML = new TreeMap<string, Usuarios>()
-  //datosHTML:Array<Usuarios>=[];
+  //datosHTML = new TreeMap<string, Usuarios>()
+  datosHTML:Array<Usuarios>=[];
   constructor(public formR:FormBuilder,public formL:FormBuilder, private servicio:ServicioService, private puenteComponentes:PuenteEntreComponentesService) { 
     this.datosHtml = ({
       nombre: "asd",
@@ -134,19 +134,23 @@ export class LoginComponent implements OnInit {
   }
   public iniciarSecionUsuario(){
     this.servicio.getUsuarios().subscribe(datosBackEnd=>{
-      for(let i=0; i<datosBackEnd.length ;i++)
-      {
-        this.datosHTML.set(datosBackEnd[i].correo,datosBackEnd[i]);
-      }
+
       var correo = this.formularioLogIn.get("correo")?.value;
       var clave = this.formularioLogIn.get("clave")?.value;
+      var datosUsuario;
+      for(let i=0; i<datosBackEnd.length ;i++)
+      {
+        if(this.datosHTML[i].correo==correo){
+          datosUsuario = this.datosHTML[i] ;
+        }
+        this.datosHTML.push(datosBackEnd[i]);
+      }      
       
-      let datosUsuario = this.datosHTML.get(correo) ;
-      if(correo != this.datosHTML.get(correo)?.correo){
+      if(correo != datosUsuario?.correo){
         console.log("correo incorrecto o clave incorrecta");
         
       }
-      if(clave != this.datosHTML.get(correo)?.clave){
+      if(clave != datosUsuario?.clave){
         
         console.log("correo incorrecto o clave incorrecta");
       }
