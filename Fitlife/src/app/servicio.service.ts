@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import {enableProdMode} from '@angular/core';
 import { LoginComponent } from './login/login.component';
 import { Formularios } from './formularios';
+import { UsuarioLog } from './usuario-log';
 const httpOptions  ={ 
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 }
@@ -19,7 +20,7 @@ export class ServicioService {
   }
   servidor="http://127.0.0.1:3000";
   getUsuarios():Observable<any>{
-    return this.http.get(`${this.servidor}/getUsuarios`);
+    return this.http.get(`${this.servidor}/getUsuarios`, );
   }
   getFormularios():Observable<any>{
     return this.http.get(`${this.servidor}/getFormularios`);
@@ -27,6 +28,10 @@ export class ServicioService {
   postUsuarios(datos:Usuarios):Observable<any>{
     console.log(datos);
     return this.http.post(`${this.servidor}/crearUsuarios`,JSON.stringify(datos),httpOptions);
+  }
+  postInicioS(datos:UsuarioLog):Observable<any>{
+    console.log(datos);
+    return this.http.post(`${this.servidor}/LoginU`,JSON.stringify(datos),httpOptions);
   }
   postFormulario(datos:Formularios):Observable<any>{
     console.log(datos);

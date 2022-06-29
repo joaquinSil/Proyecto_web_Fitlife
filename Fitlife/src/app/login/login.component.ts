@@ -9,7 +9,6 @@ import { ServicioService } from '../servicio.service';
 import { Usuarios } from '../usuarios';
 import TreeMap from "ts-treemap";
 import { PuenteEntreComponentesService } from '../puente-entre-componentes.service';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -188,5 +187,13 @@ export class LoginComponent implements OnInit {
     });
   }
   
+  public usuariosInicioS(){
+    this.servicio.postInicioS({
+      "correo":this.formularioLogIn.get("correo")?.value,
+      "clave":this.formularioLogIn.get("clave")?.value
+    }).subscribe(respuesta=>{
+      console.log(respuesta);
+    });
+  }
  
 }
