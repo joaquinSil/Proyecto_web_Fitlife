@@ -6,7 +6,7 @@ import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Input } from '@angular/core';
 import { PuenteEntreComponentesService } from '../puente-entre-componentes.service';
-import { data } from 'jquery';
+//import {data}  from 'jquery';
 import { Formularios } from '../formularios';
 @Component({
   selector: 'app-contacto',
@@ -42,8 +42,6 @@ export class ContactoComponent implements OnInit {
 
   ngOnInit(): void {
     
-<<<<<<< HEAD
-=======
     this.servicio.getFormularios().subscribe(datosBackEnd=>{
       for(let i=0; i<datosBackEnd.length ;i++)
       {
@@ -87,6 +85,5 @@ export class ContactoComponent implements OnInit {
       return true;
     } */
     //else return false;
->>>>>>> 4fd7adba4b474357a33df59a170bbfe5cccbc7b2
   }
 }
