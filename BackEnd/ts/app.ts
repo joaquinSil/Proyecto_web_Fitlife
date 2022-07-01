@@ -73,7 +73,12 @@ app.post('/crearUsuarios',bodyParser.json(),async (request:any,response:any)=>{
   let hash =  await encriptar(clave);
 
   connection.query("insert into usuarios (nombre,correo,usuario,clave) values(?,?,?,?)", [nombre,correo,usuario,hash], function(error:any, result:any, fields:any){
-    response.status(200).send(result);
+    if (error){
+      response.send(JSON.stringify(`F`));
+    }else{
+      response.status(200).send(result);
+    }
+    
   })
 });
 
@@ -147,25 +152,31 @@ app.post('/LoginU', bodyParser.json(), function(request:any, response:any) {
 	let clave = request.body.clave;
 	if (correo && clave) {
 		connection.query('SELECT * FROM usuarios WHERE correo = ?', correo, async function(error:any, results:any, fields:any) {
-      console.log(results[0])
-      let claveencrip: any = results[0].clave
-      console.log(clave);
-      let check = await comparar(clave, claveencrip)
-      console.log(check);
-      if(check == true){
+      if(results[0] != undefined){
+        console.log(results[0])
+        let claveencrip: any = results[0].clave
+        console.log(clave);
+        let check = await comparar(clave, claveencrip)
+        console.log(check);
+        if(check == true){
         if (error) throw error;
         if (results.length > 0) {
           request.session.loggedin = true;
           request.session.username = correo;
           response.send(JSON.stringify(results));
         } 
-      }	else {
+        }	else {
+          response.send(JSON.stringify(`F`));
+        }	 
+      }
+      else{
         response.send(JSON.stringify(`F`));
-      }	 
-			response.end();
+      }
+      
+			response.end()
 		});
 	} else {
-		response.send(JSON.stringify(`Por favor ingresa Usuario y Contraseña!`));
+		response.send(JSON.stringify(`F`));
 		response.end();
 	}
 });

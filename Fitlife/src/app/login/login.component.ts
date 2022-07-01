@@ -145,9 +145,10 @@ export class LoginComponent implements OnInit {
       "admin":false
 
     }).subscribe(respuesta=>{
-      console.log("a");
       console.log(respuesta);
-      console.log("a");
+      if(respuesta[0] == "F"){
+        window.alert("El usuario o correo ya existe en la plataforma")
+      }
     });
   }
   
@@ -156,7 +157,7 @@ export class LoginComponent implements OnInit {
       "correo":this.formularioLogIn.get("correo")?.value,
       "clave":this.formularioLogIn.get("clave")?.value
     }).subscribe(respuesta=>{
-        if(respuesta[0] != "F"){
+        if(respuesta[0] != "F" ){
           console.log(respuesta[0]);
         console.log("secion iniciada");
         window.alert("Secion iniciada");
@@ -175,7 +176,7 @@ export class LoginComponent implements OnInit {
         }
       }
       else{
-        window.alert("ERROR al iniciar sesion intente nuevamente");
+        window.alert("ERROR al iniciar puede que su contraseña o correo sean incorrectos intente nuevamente");
       }
       
       

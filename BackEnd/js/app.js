@@ -73,7 +73,12 @@ app.post('/crearUsuarios', bodyParser.json(), (request, response) => __awaiter(v
     let clave = request.body.clave;
     let hash = yield encriptar(clave);
     connection.query("insert into usuarios (nombre,correo,usuario,clave) values(?,?,?,?)", [nombre, correo, usuario, hash], function (error, result, fields) {
-        response.status(200).send(result);
+        if (error) {
+            response.send(JSON.stringify(`F`));
+        }
+        else {
+            response.status(200).send(result);
+        }
     });
 }));
 app.post('/crearFormulario', bodyParser.json(), (request, response) => {
@@ -144,18 +149,23 @@ app.post('/LoginU', bodyParser.json(), function (request, response) {
     if (correo && clave) {
         connection.query('SELECT * FROM usuarios WHERE correo = ?', correo, function (error, results, fields) {
             return __awaiter(this, void 0, void 0, function* () {
-                console.log(results[0]);
-                let claveencrip = results[0].clave;
-                console.log(clave);
-                let check = yield comparar(clave, claveencrip);
-                console.log(check);
-                if (check == true) {
-                    if (error)
-                        throw error;
-                    if (results.length > 0) {
-                        request.session.loggedin = true;
-                        request.session.username = correo;
-                        response.send(JSON.stringify(results));
+                if (results[0] != undefined) {
+                    console.log(results[0]);
+                    let claveencrip = results[0].clave;
+                    console.log(clave);
+                    let check = yield comparar(clave, claveencrip);
+                    console.log(check);
+                    if (check == true) {
+                        if (error)
+                            throw error;
+                        if (results.length > 0) {
+                            request.session.loggedin = true;
+                            request.session.username = correo;
+                            response.send(JSON.stringify(results));
+                        }
+                    }
+                    else {
+                        response.send(JSON.stringify(`F`));
                     }
                 }
                 else {
@@ -166,7 +176,7 @@ app.post('/LoginU', bodyParser.json(), function (request, response) {
         });
     }
     else {
-        response.send(JSON.stringify(`Por favor ingresa Usuario y Contraseña!`));
+        response.send(JSON.stringify(`F`));
         response.end();
     }
 });

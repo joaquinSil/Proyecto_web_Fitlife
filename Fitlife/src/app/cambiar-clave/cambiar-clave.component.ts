@@ -47,6 +47,6 @@ export class CambiarClaveComponent implements OnInit {
   
       })
     });
-    
+  
   }
 }
