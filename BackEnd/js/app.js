@@ -23,7 +23,7 @@ var connection = mysql.createConnection({
     user: 'root',
     password: '',
     port: 3306,
-    database: 'Fitlife'
+    database: 'xd'
 });
 connection.connect(function (err) {
     if (err) {
@@ -73,7 +73,7 @@ app.post('/crearUsuarios', bodyParser.json(), (request, response) => __awaiter(v
     let clave = request.body.clave;
     let hash = yield encriptar(clave);
     connection.query("insert into usuarios (nombre,correo,usuario,clave) values(?,?,?,?)", [nombre, correo, usuario, hash], function (error, result, fields) {
-        response.send(JSON.stringify(`formulario creado`));
+        response.status(200).send(result);
     });
 }));
 app.post('/crearFormulario', bodyParser.json(), (request, response) => {
@@ -88,22 +88,49 @@ app.post('/crearFormulario', bodyParser.json(), (request, response) => {
     });
 });
 //Actualizar una fila
-app.put('/actualizar', jsonParser, bodyParser.json(), (request, response) => {
-    let id = request.params.id;
-    let usuario = request.body.usuarios;
+app.put('/cambiarClave', bodyParser.json(), (request, response) => __awaiter(void 0, void 0, void 0, function* () {
+    let correo = request.body.correo;
+    let claveActualIngresada = request.body.claveActualIngresada;
+    let claveIngresada = request.body.claveIngresada;
+    let claveEncriptada = request.body.claveEncriptada;
+    let hash = yield encriptar(claveIngresada);
+    console.log(correo);
+    console.log(claveActualIngresada);
+    console.log(claveIngresada);
+    console.log(claveEncriptada);
+    console.log(hash);
+    connection.query("UPDATE `usuarios` SET clave=? WHERE correo=?", [hash, correo], (req1, res1) => {
+        response.status(200).send("Usuario Actualizado");
+    });
+}));
+app.post('/verificarClave', bodyParser.json(), (request, response) => {
+    let correo = request.body.correo;
     let clave = request.body.clave;
-    let texto = request.body.texto;
-    connection.query("UPDATE formularios set usuario=? where id=? ", [usuario, id], function (error, result, fields) {
-        response.send(JSON.stringify(`formulario creado ${result.update}`));
+    console.log(clave + correo);
+    connection.query('SELECT * FROM usuarios WHERE correo = ?', correo, function (error, results, fields) {
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log(results[0]);
+            let claveencrip = results[0].clave;
+            let check = yield comparar(clave, claveencrip);
+            if (check == true) {
+                if (error)
+                    throw error;
+                if (results.length > 0) {
+                    response.send(JSON.stringify(results));
+                }
+            }
+            else {
+                response.send(JSON.stringify(`Usuario y/o Contraseña Incorrecta`));
+            }
+            response.end();
+        });
     });
 });
-app.delete('/eliminarUsuario', bodyParser.json(), (req, res) => {
-    console.log("xdddd");
-    //console.log(req);
-    let correo = "asdasd";
-    console.log("xdddd");
+app.delete('/borrarUsuario/:correo', bodyParser.json(), (request, response) => {
+    let correo = request.params.correo;
+    console.log(correo);
     connection.query("DELETE FROM `usuarios` WHERE correo=?", correo, (req1, res1) => {
-        res.status(200).send("Usuario Eliminado");
+        response.send(JSON.stringify(`Usuario y/o Contraseña Incorrecta`));
     });
 });
 app.use(session({
@@ -117,8 +144,11 @@ app.post('/LoginU', bodyParser.json(), function (request, response) {
     if (correo && clave) {
         connection.query('SELECT * FROM usuarios WHERE correo = ?', correo, function (error, results, fields) {
             return __awaiter(this, void 0, void 0, function* () {
+                console.log(results[0]);
                 let claveencrip = results[0].clave;
+                console.log(clave);
                 let check = yield comparar(clave, claveencrip);
+                console.log(check);
                 if (check == true) {
                     if (error)
                         throw error;
@@ -129,7 +159,7 @@ app.post('/LoginU', bodyParser.json(), function (request, response) {
                     }
                 }
                 else {
-                    response.send(JSON.stringify(`Usuario y/o Contraseña Incorrecta`));
+                    response.send(JSON.stringify(`F`));
                 }
                 response.end();
             });

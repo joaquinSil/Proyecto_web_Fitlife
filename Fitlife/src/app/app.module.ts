@@ -14,6 +14,7 @@ import { NutricionComponent } from './nutricion/nutricion.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { CambiarClaveComponent } from './cambiar-clave/cambiar-clave.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import {HttpClientModule} from '@angular/common/http';
     HomeComponent,
     LoginComponent,
     MeditacionComponent,
-    NutricionComponent
+    NutricionComponent,
+    CambiarClaveComponent
   ],
   imports: [
     BrowserModule,

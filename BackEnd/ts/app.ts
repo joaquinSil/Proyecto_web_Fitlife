@@ -14,7 +14,7 @@ var connection = mysql.createConnection({
   user     : 'root',
   password : '',
   port: 3306,
-  database : 'Fitlife'
+  database : 'xd'
 });
 
 connection.connect(function(err:any) {
@@ -73,7 +73,7 @@ app.post('/crearUsuarios',bodyParser.json(),async (request:any,response:any)=>{
   let hash =  await encriptar(clave);
 
   connection.query("insert into usuarios (nombre,correo,usuario,clave) values(?,?,?,?)", [nombre,correo,usuario,hash], function(error:any, result:any, fields:any){
-    response.send(JSON.stringify(`formulario creado`));
+    response.status(200).send(result);
   })
 });
 
@@ -90,24 +90,49 @@ app.post('/crearFormulario',bodyParser.json(),(request:any,response:any)=>{
   })
 });
 //Actualizar una fila
-app.put('/actualizar',jsonParser,bodyParser.json(),(request:any,response:any)=>{
-  let id=request.params.id;
-  let usuario=request.body.usuarios;
+app.put('/cambiarClave',bodyParser.json(),async (request:any, response:any) => {
+
+  let correo = request.body.correo;
+  let claveActualIngresada=request.body.claveActualIngresada;
+  let claveIngresada=request.body.claveIngresada;
+  let claveEncriptada=request.body.claveEncriptada;
+  let hash =  await encriptar(claveIngresada);
+  console.log(correo);
+  console.log(claveActualIngresada);
+  console.log(claveIngresada);
+  console.log(claveEncriptada);
+  console.log(hash);
+  connection.query("UPDATE `usuarios` SET clave=? WHERE correo=?",[hash,correo],(req1:any,res1:any)=>{
+    response.status(200).send("Usuario Actualizado");
+  });
+});
+
+app.post('/verificarClave',bodyParser.json() ,(request:any,response:any) => {
+  let correo=request.body.correo;
   let clave=request.body.clave;
-  let texto=request.body.texto;
+  console.log(clave+correo);
+  connection.query('SELECT * FROM usuarios WHERE correo = ?', correo, async function(error:any, results:any, fields:any) {
+    console.log(results[0])
+    let claveencrip: any = results[0].clave
+    let check = await comparar(clave, claveencrip)
+    if(check == true){
+      if (error) throw error;
+      if (results.length > 0) {
+        response.send(JSON.stringify(results));
+      } 
+    }	else {
+      response.send(JSON.stringify(`Usuario y/o Contraseña Incorrecta`));
+    }	 
+    response.end();
+  });
 
-  connection.query("UPDATE formularios set usuario=? where id=? ",[usuario,id], function(error:any, result:any, fields:any){
-    response.send(JSON.stringify(`formulario creado ${result.update}`));
-  })
-})
+});
 
-app.delete('/eliminarUsuario',bodyParser.json(), (req:any,res:any)=> {
-  console.log("xdddd");
-  //console.log(req);
-  let correo = "asdasd"; 
-  console.log("xdddd")
+app.delete('/borrarUsuario/:correo',bodyParser.json() ,(request:any,response:any)=> {
+  let correo=request.params.correo;
+  console.log(correo);
   connection.query("DELETE FROM `usuarios` WHERE correo=?",correo,(req1:any,res1:any)=>{
-      res.status(200).send("Usuario Eliminado");
+    response.send(JSON.stringify(`Usuario y/o Contraseña Incorrecta`));
   });
 });
 
@@ -122,8 +147,11 @@ app.post('/LoginU', bodyParser.json(), function(request:any, response:any) {
 	let clave = request.body.clave;
 	if (correo && clave) {
 		connection.query('SELECT * FROM usuarios WHERE correo = ?', correo, async function(error:any, results:any, fields:any) {
+      console.log(results[0])
       let claveencrip: any = results[0].clave
+      console.log(clave);
       let check = await comparar(clave, claveencrip)
+      console.log(check);
       if(check == true){
         if (error) throw error;
         if (results.length > 0) {
@@ -132,7 +160,7 @@ app.post('/LoginU', bodyParser.json(), function(request:any, response:any) {
           response.send(JSON.stringify(results));
         } 
       }	else {
-        response.send(JSON.stringify(`Usuario y/o Contraseña Incorrecta`));
+        response.send(JSON.stringify(`F`));
       }	 
 			response.end();
 		});

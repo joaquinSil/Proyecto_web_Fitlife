@@ -24,8 +24,16 @@ export class LoginComponent implements OnInit {
   mostrarFormulario:boolean = false;
   //datosHTML = new TreeMap<string, Usuarios>()
   datosHTML:Array<Usuarios>=[];
+  datosUsuarioLogIn:Usuarios;
   constructor(public formR:FormBuilder,public formL:FormBuilder, private servicio:ServicioService, private puenteComponentes:PuenteEntreComponentesService) { 
     this.datosHtml = ({
+      nombre: "asd",
+      correo: "asd",
+      usuario: "asd",
+      clave: "asd",
+      admin: false
+    })
+    this.datosUsuarioLogIn = ({
       nombre: "asd",
       correo: "asd",
       usuario: "asd",
@@ -126,52 +134,6 @@ export class LoginComponent implements OnInit {
     
   
   }
-  private validacion(flag:number){
-    if(flag == 101){
-      //this.mostrarFormulario = 101;
-    }
-  }
-  public iniciarSecionUsuario(){
-    this.servicio.getUsuarios().subscribe(datosBackEnd=>{
-
-      var correo = this.formularioLogIn.get("correo")?.value;
-      var clave = this.formularioLogIn.get("clave")?.value;
-      var datosUsuario;
-      for(let i=0; i<datosBackEnd.length ;i++)
-      {
-        
-        this.datosHTML.push(datosBackEnd[i]);
-        if(this.datosHTML[i].correo==correo){
-          datosUsuario = this.datosHTML[i] ;
-        }
-      }      
-      
-      if(correo != datosUsuario?.correo){
-        console.log("correo incorrecto o clave incorrecta");
-        
-      }
-      if(clave != datosUsuario?.clave){
-        
-        console.log("correo incorrecto o clave incorrecta");
-      }
-      if(correo == datosUsuario?.correo && clave == datosUsuario?.clave){
-        console.log("Sesion Iniciada")
-        this.puenteComponentes.setUsuario(datosUsuario?.nombre);
-        this.puenteComponentes.setclave(datosUsuario?.clave);
-        this.puenteComponentes.setNombreUsuario(datosUsuario?.usuario);
-        this.puenteComponentes.setConectado(true);
-        this.puenteComponentes.setCorreoUsuario(datosUsuario?.correo);
-        if(datosUsuario?.admin == true){
-          this.puenteComponentes.setEstadoAdmin(true);
-          
-        }else{
-          this.puenteComponentes.setEstadoAdmin(false);
-        }
-        //console.log(datosUsuario?.admin);
-        
-      }
-    });
-  }
 
   public generarNuevoUsuario(){
     this.servicio.postUsuarios({
@@ -183,7 +145,9 @@ export class LoginComponent implements OnInit {
       "admin":false
 
     }).subscribe(respuesta=>{
+      console.log("a");
       console.log(respuesta);
+      console.log("a");
     });
   }
   
@@ -192,7 +156,30 @@ export class LoginComponent implements OnInit {
       "correo":this.formularioLogIn.get("correo")?.value,
       "clave":this.formularioLogIn.get("clave")?.value
     }).subscribe(respuesta=>{
-      console.log(respuesta);
+        if(respuesta[0] != "F"){
+          console.log(respuesta[0]);
+        console.log("secion iniciada");
+        window.alert("Secion iniciada");
+        
+        this.datosUsuarioLogIn = respuesta[0];
+        this.puenteComponentes.setUsuario(this.datosUsuarioLogIn?.nombre);
+        this.puenteComponentes.setclave(this.datosUsuarioLogIn?.clave);
+        this.puenteComponentes.setNombreUsuario(this.datosUsuarioLogIn?.usuario);
+        this.puenteComponentes.setConectado(true);
+        this.puenteComponentes.setCorreoUsuario(this.datosUsuarioLogIn?.correo);
+        if(this.datosUsuarioLogIn?.admin == true){
+          this.puenteComponentes.setEstadoAdmin(true);
+          
+        }else{
+          this.puenteComponentes.setEstadoAdmin(false);
+        }
+      }
+      else{
+        window.alert("ERROR al iniciar sesion intente nuevamente");
+      }
+      
+      
+      
     });
   }
  

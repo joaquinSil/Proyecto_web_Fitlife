@@ -35,8 +35,28 @@
             <li class="nav-item" *ngIf="getConectadoActual()">
               <p> iniciada como {{getUsuario()}}</p>
             </li>
-            <li class="nav-item" *ngIf="getConectadoActual()" >
+            <!--<li class="nav-item" *ngIf="getConectadoActual()" >
               <button class="btn-outline-success" type="submit" (click)="eliminarCuenta()">eliminar cuenta</button>
+            </li>-->
+            <li class="nav-item" *ngIf="getConectadoActual()" >
+              <div class="flex-shrink-0 dropdown">
+                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false"> 
+                </a>
+                <ul class="dropdown-menu text-small shadow" >
+                  <li>
+                    
+                    <button class="btn-outline-success" [routerLink]="['/cambio contraseña']">Cambiar Contraseña</button>
+                  </li>
+                  <li>
+                    <button class="btn-outline-success" type="submit" (click)="cerrarSesion()">Cerrar Sesion</button>
+                  </li>
+                  <li>
+                    <button class="btn-outline-success" type="submit" (click)="eliminarCuenta()">Eliminar Cuenta</button>
+                  </li>
+                  
+                  <!--<li><a class="dropdown-item" href="#">Sign out</a></li>-->
+                </ul>
+              </div>
             </li>
             
           </ul>

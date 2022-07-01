@@ -12,6 +12,11 @@ export class HeaderComponent implements OnInit {
   constructor(private puente:PuenteEntreComponentesService, private backEnd:ServicioService) { }
 
   ngOnInit(): void {
+    document.getElementById("cambiarClave")?.addEventListener("click", cambiarClave);
+
+    function cambiarClave(){
+      
+    }
   }
 
   public getConectadoActual(){   
@@ -23,7 +28,23 @@ export class HeaderComponent implements OnInit {
   public eliminarCuenta(){
     //let usuarioEliminar:Usuarios;
     //usuarioEliminar.admin = this.puente.getE)
-    console.log(this.puente.getUsuarioTotal()+"datos en header");
-    this.backEnd.eliminarUsuario(this.puente.getUsuarioTotal());
+    //console.log(this.puente.getUsuarioTotal());
+    this.backEnd.eliminarUsuario(this.puente.getUsuarioTotal().correo).subscribe(data =>{
+      console.log("usuario eliminado");
+      this.puente.setConectado(false);
+      alert("Su cuenta a sido borrada");
+    });
+
+  }
+  public cerrarSesion(){
+    this.puente.setConectado(false);
+    this.puente.setCorreoUsuario("");
+    this.puente.setNombreUsuario("");
+    this.puente.setclave("");
+    this.puente.setUsuario("");
+    alert("Usted a cerrado sesion con exito")
+  }
+  public cambiarClave(){
+    
   }
 }
