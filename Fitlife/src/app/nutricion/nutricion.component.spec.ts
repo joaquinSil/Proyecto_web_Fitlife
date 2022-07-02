@@ -22,4 +22,6 @@ describe('NutricionComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  
 });

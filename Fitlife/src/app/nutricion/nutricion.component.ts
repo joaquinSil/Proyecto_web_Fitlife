@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {Video} from '../video';
 import {default as VideosNutricion} from '../listaVideo.json'
+//import { truncate } from 'fs';
 
 
 @Component({
@@ -10,66 +11,58 @@ import {default as VideosNutricion} from '../listaVideo.json'
   styleUrls: ['./nutricion.component.scss']
 })
 export class NutricionComponent implements OnInit {
+
   flag:number = 0;
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
 
-    /*let calculadora:any = document.getElementById("formulario");
+  public resultado(){
 
     let alturaMt = null;
     let imc = null;
     let errores = '';
+    
+    let pesoHtml:any = document.getElementById("peso");
+    let peso:any=pesoHtml.value;
+    
+    let alturaHtml:any = document.getElementById("altura");
+    let altura:any=alturaHtml.value;
+    
+    if ((peso) == 0) {
+      errores += 'Escriba su peso en Kg ';
+    }
 
-    calculadora.addEventListener("submit", function (evento:any) {
-      //evento.preventDefault();
-      let peso:any = document.getElementById("peso");
-      let altura:any = document.getElementById("altura");
-      //evento.preventDefault();
+    if ((altura) == 0) {
+      errores += 'Escriba su altura en cm ';
+    }
 
-      console.log(peso);
-      if ((peso) == null) {
-        errores += 'Escriba su peso en Kg ';
-        console.log(peso);
-        //$('#mensaje').css("border-bottom-color","#F14B4B")
-      }
-      console.log(peso);
-      console.log(altura);
+    if (errores == '') {
 
-      if ((altura) == null) {
-        console.log(altura);
-        errores += 'Escriba su altura en cm ';
-        //$('#mensaje').css("border-bottom-color","#F14B4B")
-      }
-      console.log(altura);
-      if (errores == '') {
-
-        alturaMt = (altura)/100;
-        imc = peso / ((alturaMt) * (alturaMt));
-        errores += 'Su IMC es de :' + imc + ' ';
-        if (imc < 18.5) {
-            errores += 'Usted tiene bajo peso, se le recomienda que aumente su masa';
-        }
-        else {
-            if (imc < 24.9) {
-                errores += 'Usted tiene un buen peso, se le recomienda que lo mantenga';
-            }
-            else {                
-                errores += 'Usted tiene sobre peso, se le recomienda que baje su masa corporal';
-            }
-        }
-        alert(errores);
+      alturaMt = (altura)/100;
+      imc = peso / ((alturaMt) * (alturaMt));
+      
+      errores += 'Su IMC es de: ' + imc.toFixed(2) + ' ';
+      if (imc < 18.5) {
+          errores += 'Usted tiene bajo peso, se le recomienda que aumente su masa';
       }
       else {
-          alert(errores);
+        if (imc < 24.9) {
+            errores += 'Usted tiene un buen peso, se le recomienda que lo mantenga';
+        }
+        else {                
+            errores += 'Usted tiene sobre peso, se le recomienda que baje su masa corporal';
+        }
       }
-    });*/
-    
 
-    
-    
-    //window.addEventListener("load" ,ListarVideos);
-  }
+      alert(errores);
+    }
+    else {
+      alert(errores);
+    }
+  };
+  
   public ListarVideos(){
     let i:number;
     let listaDeVideos:any = document.getElementById("Todas las rutinasA");

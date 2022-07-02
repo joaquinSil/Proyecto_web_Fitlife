@@ -170,9 +170,10 @@ export class LoginComponent implements OnInit {
         this.puenteComponentes.setCorreoUsuario(this.datosUsuarioLogIn?.correo);
         if(this.datosUsuarioLogIn?.admin == true){
           this.puenteComponentes.setEstadoAdmin(true);
-          
+          //window.location.href="/home"
         }else{
           this.puenteComponentes.setEstadoAdmin(false);
+          //window.location.href="/home"
         }
       }
       else{

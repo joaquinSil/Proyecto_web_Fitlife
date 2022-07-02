@@ -5,9 +5,10 @@
       <div class="contenido">
         <form action="" method="GET" class="formulario" id="formulario">
 
-          <input type="tex" name="Peso" placeholder="Peso(kg)" id="peso">
-          <input type="text" name="altura" placeholder="Altura(cm)" id="altura">
-          <button type="submit" id="btn-imc">Enviar</button>
+          <input type="number" name="Peso" placeholder="Peso(kg)"  id="peso">
+          <input type="number" name="altura" placeholder="Altura(cm)"  id="altura">
+          <button type="submit" (click)="resultado()" id="btn-imc">Enviar</button>
+          
         </form>
       </div>      
     </div>
