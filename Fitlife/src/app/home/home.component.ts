@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PuenteEntreComponentesService } from '../puente-entre-componentes.service';
 
 @Component({
   selector: 'app-home',
@@ -12,10 +13,12 @@ export class HomeComponent implements OnInit {
     {"id":2,"ruta":"ejercicio2.jpg"},
     {"id":3,"ruta":"naranja.jpg"}
   ]
-  constructor() { }
+  constructor(private puente:PuenteEntreComponentesService) { }
 
   ngOnInit(): void {
 
   }
-
+  public getConectadoActual(){   
+    return this.puente.getConectado();
+  }
 }

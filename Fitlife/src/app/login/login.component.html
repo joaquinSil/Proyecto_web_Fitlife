@@ -21,9 +21,9 @@
                 <form action="" class="formulario__login" [formGroup]="formularioLogIn" (ngSubmit) = "usuariosInicioS()" novalidate>
                     <h2>Iniciar Sesión</h2>
                     <input type="text" formControlName="correo" placeholder="Correo Electronico">
-                    <input type="text" formControlName="clave" placeholder="Contraseña">
+                    <input type="password" formControlName="clave" placeholder="Contraseña">
                     <button type ="submit">Entrar</button>
-                    
+                    <router-outlet></router-outlet>
                     
                 </form>
                 
@@ -35,7 +35,7 @@
                     <input type="text" formControlName="correo" placeholder="Correo Electronico">
                     <input type="text" formControlName="usuario" placeholder="Usuario">
                     <input type="text" formControlName="clave" placeholder="Contraseña">
-                    <button type ="submit"  >Regístrarse</button>
+                    <button type ="submit">Regístrarse</button>
                 </form>
             
             </div>

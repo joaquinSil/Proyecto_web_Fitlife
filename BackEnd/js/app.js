@@ -11,6 +11,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = require('express');
 var session = require('express-session');
+var cookie = require('cookie-parser');
+var id = require('express-session-id');
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
 const { encriptar, comparar } = require('../js/encript.js');
@@ -23,14 +25,14 @@ var connection = mysql.createConnection({
     user: 'root',
     password: '',
     port: 3306,
-    database: 'xd'
+    database: 'Fitlife'
 });
 connection.connect(function (err) {
     if (err) {
-        console.error('error connecting: ' + err.stack);
+        console.error('Error connecting: ' + err.stack);
         return;
     }
-    console.log('connected as id ' + connection.threadId);
+    console.log('Connected as id: ' + connection.threadId);
 });
 app.use(cors());
 // create application/json parser
@@ -42,25 +44,33 @@ const configuracion = {
     hostname: "127.0.0.1",
     port: 3000,
 };
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+}));
+app.use(cookie('my secret key'));
+app.use(id({
+    idleTime: 10 * 1000 * 60,
+    cookie: {
+        signed: true
+    }
+}));
 //Obtener todas las filas
 app.get('/getUsuarios', bodyParser.json(), (request, response) => {
     let clave = request.body.clave;
-    console.log(clave);
     connection.query("SELECT * from usuarios", function (error, results, fields) {
         response.send(results);
     });
 });
 app.get('/getFormularios', bodyParser.json(), (request, response) => {
-    console.log("xdd");
     connection.query("SELECT * from contacto", function (error, results, fields) {
         response.send(results);
     });
 });
 //Obtener los datos de una fila segun el id
 app.get('/getUsuario', bodyParser.json(), (request, response) => {
-    //console.log("correo");
     let correo = request.body.correo;
-    console.log(correo);
     connection.query("select * from usuarios where correo=?", correo, function (error, result, fields) {
         response.send(JSON.stringify(result));
     });
@@ -82,12 +92,10 @@ app.post('/crearUsuarios', bodyParser.json(), (request, response) => __awaiter(v
     });
 }));
 app.post('/crearFormulario', bodyParser.json(), (request, response) => {
-    console.log("xddddd");
     let nombre = request.body.nombre;
     let correo = request.body.correo;
     let asunto = request.body.asunto;
     let mensaje = request.body.mensaje;
-    console.log(nombre, correo, asunto, mensaje);
     connection.query("insert into contacto (nombre,correo,asunto,mensaje) values(?,?,?,?)", [nombre, correo, asunto, mensaje], function (error, result, fields) {
         response.send(JSON.stringify(`formulario creado ${result.insertId}`));
     });
@@ -98,23 +106,22 @@ app.put('/cambiarClave', bodyParser.json(), (request, response) => __awaiter(voi
     let claveActualIngresada = request.body.claveActualIngresada;
     let claveIngresada = request.body.claveIngresada;
     let claveEncriptada = request.body.claveEncriptada;
-    let hash = yield encriptar(claveIngresada);
-    console.log(correo);
-    console.log(claveActualIngresada);
-    console.log(claveIngresada);
-    console.log(claveEncriptada);
-    console.log(hash);
-    connection.query("UPDATE `usuarios` SET clave=? WHERE correo=?", [hash, correo], (req1, res1) => {
-        response.status(200).send("Usuario Actualizado");
-    });
+    let xd = yield comparar(claveActualIngresada, claveEncriptada);
+    if (xd == true) {
+        let hash = yield encriptar(claveIngresada);
+        connection.query("UPDATE `usuarios` SET clave=? WHERE correo=?", [hash, correo], (req1, res1) => {
+            response.send(JSON.stringify("V"));
+        });
+    }
+    else {
+        response.send(JSON.stringify("F"));
+    }
 }));
 app.post('/verificarClave', bodyParser.json(), (request, response) => {
     let correo = request.body.correo;
     let clave = request.body.clave;
-    console.log(clave + correo);
     connection.query('SELECT * FROM usuarios WHERE correo = ?', correo, function (error, results, fields) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log(results[0]);
             let claveencrip = results[0].clave;
             let check = yield comparar(clave, claveencrip);
             if (check == true) {
@@ -125,7 +132,7 @@ app.post('/verificarClave', bodyParser.json(), (request, response) => {
                 }
             }
             else {
-                response.send(JSON.stringify(`Usuario y/o Contraseña Incorrecta`));
+                response.send(JSON.stringify("F"));
             }
             response.end();
         });
@@ -133,16 +140,10 @@ app.post('/verificarClave', bodyParser.json(), (request, response) => {
 });
 app.delete('/borrarUsuario/:correo', bodyParser.json(), (request, response) => {
     let correo = request.params.correo;
-    console.log(correo);
     connection.query("DELETE FROM `usuarios` WHERE correo=?", correo, (req1, res1) => {
         response.send(JSON.stringify(`Usuario y/o Contraseña Incorrecta`));
     });
 });
-app.use(session({
-    secret: 'secret',
-    resave: true,
-    saveUninitialized: true
-}));
 app.post('/LoginU', bodyParser.json(), function (request, response) {
     let correo = request.body.correo;
     let clave = request.body.clave;
@@ -150,17 +151,15 @@ app.post('/LoginU', bodyParser.json(), function (request, response) {
         connection.query('SELECT * FROM usuarios WHERE correo = ?', correo, function (error, results, fields) {
             return __awaiter(this, void 0, void 0, function* () {
                 if (results[0] != undefined) {
-                    console.log(results[0]);
                     let claveencrip = results[0].clave;
-                    console.log(clave);
                     let check = yield comparar(clave, claveencrip);
-                    console.log(check);
                     if (check == true) {
                         if (error)
                             throw error;
                         if (results.length > 0) {
                             request.session.loggedin = true;
                             request.session.username = correo;
+                            console.log("Identificador de sesión:", request.sessionID);
                             response.send(JSON.stringify(results));
                         }
                     }

@@ -1,0 +1,30 @@
+.cambioc{
+    width: 100%;
+    padding: 20px 40px;
+    background: #F2F2F2;
+    font-size: 16px;
+    outline: none;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    input{
+        padding: 10px;
+        margin-bottom: 10px;
+        border: none;
+        background: #Ffffff;
+        font-size: 16px;
+        outline: none;
+        border-radius: 10px;
+    }
+    button{
+        padding: 10px 20px;
+        border: none;
+        font-size: 14px;
+        background: #46A2FD;
+        font-weight: 600;
+        cursor: pointer;
+        color: white;
+        outline: none;
+    }
+}

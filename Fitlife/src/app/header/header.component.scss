@@ -100,3 +100,21 @@ header{
         background: rgba(0,0,0,0.3);
     }
 }
+
+#btn{
+    
+    padding: 10px 15px;
+    border: none;
+    font-size: 14px;
+    background: #a2b9ee;
+    font-weight: 600;
+    cursor: pointer;
+    color: #c6c6c6;
+    outline: none;
+    
+}
+#btn:hover{
+    cursor: pointer;
+    background-color: #a2dcee;
+    color: #000000
+}

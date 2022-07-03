@@ -34,7 +34,7 @@
     <h3>¿Qué es FitLife?</h3>
     <aside>
         Accede a nuestro contenido:
-        <a class="nav-link" [routerLink]="['/login']" style="color: black;">Regístrate</a>
+        <a class="nav-link" *ngIf="!getConectadoActual()" [routerLink]="['/login']" style="color: black;">Regístrate</a>
         <a class="nav-link" [routerLink]="['/ejercicio']" style="color: black;">Rutinas de ejercicio</a>
         <a class="nav-link" [routerLink]="['/meditacion']" style="color: black;">Meditaciones guiadas</a>
         <a class="nav-link" [routerLink]="['/nutricion']" style="color: black;">Calcula tu IMC y revisa nuestras guías de nutrición</a>

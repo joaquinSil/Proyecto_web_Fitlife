@@ -40,7 +40,6 @@ export class EjercicioComponent implements OnInit {
     let listaDeVideos:any = document.getElementById("Todas las rutinasA");
     let li:any=document.createElement("li");
     let ejercicio = VideosEjercicios;
-    console.log("a");
     
     if(this.flag2 == 0){
       for(i=0;i<3;i++)
@@ -48,7 +47,6 @@ export class EjercicioComponent implements OnInit {
         let li:any=document.createElement("li");
         listaDeVideos.appendChild(li).innerHTML=`<iframe width="320" height="240" src =" ${ejercicio.listaVideosEjercicios[i].link}">` ;      
       }  
-      console.log("a");
       listaDeVideos= document.getElementById("Todas las rutinasB");  
       for(i=3;i<ejercicio.listaVideosEjercicios.length;i++)
       {

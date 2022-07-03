@@ -1,8 +1,6 @@
-<form action="" class="" [formGroup]="formularioCambioClave" (ngSubmit) = "cambiarClave()" novalidate>
-    <h2>Iniciar Sesión</h2>
-    <input type="text" formControlName="correo" placeholder="Correo regitrado">
-    <input type="text" formControlName="claveActualIngresada" placeholder="Contraseña actual">
-    <input type="text" formControlName="claveIngresada" placeholder="Nueva Contraseña">
-    <input type="text" formControlName="claveNueva2" placeholder="Repita la nueva contraseña">
-    <button type ="submit">Entrar</button>
+<form action="" id="xd" class="cambioc" [formGroup]="formularioCambioClave" (ngSubmit) = "cambiarClave()" novalidate>
+    <h2>Cambiar Contraseña</h2>
+    <input type="password" id="Ca" formControlName="claveActualIngresada" placeholder="Contraseña actual">
+    <input type="password" id="Cn" formControlName="claveIngresada" placeholder="Nueva Contraseña">
+    <button type ="submit">Cambiar Contraseña</button>
 </form>

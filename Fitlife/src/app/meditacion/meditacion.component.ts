@@ -24,11 +24,9 @@ export class MeditacionComponent implements OnInit {
     let listaDeVideos:any = document.getElementById("Todas las meditaciones");
     let li:any=document.createElement("li");
     let meditacion = VideosMeditacion;
-    console.log(1000);
     if(this.flag == 0){
       for(i=0;i<meditacion.listaVideosMeditacion.length;i++)
       {
-      console.log(i);
       let li:any=document.createElement("li");
       listaDeVideos.appendChild(li).innerHTML=`<iframe width="320" height="240" src =" ${meditacion.listaVideosMeditacion[i].link}">` ;      
       }

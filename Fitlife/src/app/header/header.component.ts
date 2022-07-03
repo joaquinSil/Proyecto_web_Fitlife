@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit {
     //usuarioEliminar.admin = this.puente.getE)
     //console.log(this.puente.getUsuarioTotal());
     this.backEnd.eliminarUsuario(this.puente.getUsuarioTotal().correo).subscribe(data =>{
-      console.log("usuario eliminado");
+      console.log("Usuario eliminado");
       this.puente.setConectado(false);
       alert("Su cuenta a sido borrada");
     });
@@ -43,6 +43,7 @@ export class HeaderComponent implements OnInit {
     this.puente.setclave("");
     this.puente.setUsuario("");
     alert("Usted a cerrado sesion con exito")
+    window.location.href="/home"
   }
   public cambiarClave(){
     

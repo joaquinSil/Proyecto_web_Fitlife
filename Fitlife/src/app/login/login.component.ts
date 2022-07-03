@@ -9,6 +9,7 @@ import { ServicioService } from '../servicio.service';
 import { Usuarios } from '../usuarios';
 import TreeMap from "ts-treemap";
 import { PuenteEntreComponentesService } from '../puente-entre-componentes.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -25,7 +26,7 @@ export class LoginComponent implements OnInit {
   //datosHTML = new TreeMap<string, Usuarios>()
   datosHTML:Array<Usuarios>=[];
   datosUsuarioLogIn:Usuarios;
-  constructor(public formR:FormBuilder,public formL:FormBuilder, private servicio:ServicioService, private puenteComponentes:PuenteEntreComponentesService) { 
+  constructor(public formR:FormBuilder,public formL:FormBuilder, private servicio:ServicioService, private puenteComponentes:PuenteEntreComponentesService, private router:Router) { 
     this.datosHtml = ({
       nombre: "asd",
       correo: "asd",
@@ -130,9 +131,7 @@ export class LoginComponent implements OnInit {
       }
 
     }
-    
-    
-  
+     
   }
 
   public generarNuevoUsuario(){
@@ -149,6 +148,10 @@ export class LoginComponent implements OnInit {
       if(respuesta[0] == "F"){
         window.alert("El usuario o correo ya existe en la plataforma")
       }
+      else{
+        window.alert("Usuario registrado")
+        this.ngOnInit();
+      }
     });
   }
   
@@ -158,9 +161,9 @@ export class LoginComponent implements OnInit {
       "clave":this.formularioLogIn.get("clave")?.value
     }).subscribe(respuesta=>{
         if(respuesta[0] != "F" ){
-          console.log(respuesta[0]);
-        console.log("secion iniciada");
-        window.alert("Secion iniciada");
+        console.log(respuesta[0]);
+        console.log("Sesión iniciada");
+        window.alert("Sesión iniciada");
         
         this.datosUsuarioLogIn = respuesta[0];
         this.puenteComponentes.setUsuario(this.datosUsuarioLogIn?.nombre);
@@ -170,10 +173,10 @@ export class LoginComponent implements OnInit {
         this.puenteComponentes.setCorreoUsuario(this.datosUsuarioLogIn?.correo);
         if(this.datosUsuarioLogIn?.admin == true){
           this.puenteComponentes.setEstadoAdmin(true);
-          //window.location.href="/home"
+          this.router.navigate(['/home']);
         }else{
           this.puenteComponentes.setEstadoAdmin(false);
-          //window.location.href="/home"
+          this.router.navigate(['/home']);
         }
       }
       else{
@@ -184,5 +187,7 @@ export class LoginComponent implements OnInit {
       
     });
   }
- 
+  public xd(){
+    window.location.href="/home"
+  }
 }
