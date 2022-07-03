@@ -19,4 +19,11 @@ Andrés Marcelo Vidal Soto
 
 - Entre las funcionalidades de seguridad web estan el inicio de sesión, el cierre de sesión, el cambio de contraseñas y las contraseñas encriptadas, las cuales en ningun momento se pueden ver su contenido.
 
+- Los usuarios disponibles en la aplicacion son 
+correo: andres.legue@gmail.com
+clave: admin1
+
+correo: eli.buendia@gmail.com
+clave: usuario1
+
 https://github.com/joaquinSil/Proyecto_web_Fitlife
