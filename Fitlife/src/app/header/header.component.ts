@@ -26,9 +26,6 @@ export class HeaderComponent implements OnInit {
     return this.puente.getNombreUsuario();
   }
   public eliminarCuenta(){
-    //let usuarioEliminar:Usuarios;
-    //usuarioEliminar.admin = this.puente.getE)
-    //console.log(this.puente.getUsuarioTotal());
     this.backEnd.eliminarUsuario(this.puente.getUsuarioTotal().correo).subscribe(data =>{
       console.log("Usuario eliminado");
       this.puente.setConectado(false);

@@ -18,7 +18,6 @@ export class CambiarClaveComponent implements OnInit {
   constructor(public formR:FormBuilder,public formL:FormBuilder, private puenteComponentes:PuenteEntreComponentesService, private backEnd:ServicioService, private router:Router) { 
     
     this.formularioCambioClave=this.formR.group({
-      
       correo: "",
       claveActualIngresada: "",
       claveIngresada: "",
@@ -50,13 +49,12 @@ export class CambiarClaveComponent implements OnInit {
           window.alert("Contraseña cambiada")
           this.router.navigate(['/home']);
         }else{
-          window.alert("nonono")
-          this.router.navigate(['/cambio contraseña']);
+          window.alert("Verifique sus datos e intente nuevamente")
+          this.router.navigate(['/home']);
         }
       })
       }else{
-        window.alert("nonono")
-        
+        window.alert("Verifique sus datos e intente nuevamente")  
       }
     });
   }

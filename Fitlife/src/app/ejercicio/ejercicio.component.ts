@@ -13,14 +13,9 @@ export class EjercicioComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    
-    
-    
 
-    //window.addEventListener("load" ,ListarVideosDestacados);
-    //window.addEventListener("load" ,ListarVideos);
   }
-  public ListarVideosDestacados(){//aun no esta listo la funcinalidad de videos destacados
+  public ListarVideosDestacados(){
     let i:number;
     let listaDeVideos:any = document.getElementById("ejerciciosDestacados");
     let li:any=document.createElement("li");
@@ -35,7 +30,7 @@ export class EjercicioComponent implements OnInit {
     }
    
   }
-  public ListarVideos(){//aun no esta listo la funcinalidad de videos destacados
+  public ListarVideos(){
     let i:number;
     let listaDeVideos:any = document.getElementById("Todas las rutinasA");
     let li:any=document.createElement("li");

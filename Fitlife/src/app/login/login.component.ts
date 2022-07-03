@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
   formularioLogIn:FormGroup;
   datosHtml:Usuarios;
   mostrarFormulario:boolean = false;
-  //datosHTML = new TreeMap<string, Usuarios>()
   datosHTML:Array<Usuarios>=[];
   datosUsuarioLogIn:Usuarios;
   constructor(public formR:FormBuilder,public formL:FormBuilder, private servicio:ServicioService, private puenteComponentes:PuenteEntreComponentesService, private router:Router) { 
@@ -144,7 +143,6 @@ export class LoginComponent implements OnInit {
       "admin":false
 
     }).subscribe(respuesta=>{
-      console.log(respuesta);
       if(respuesta[0] == "F"){
         window.alert("El usuario o correo ya existe en la plataforma")
       }
@@ -186,8 +184,5 @@ export class LoginComponent implements OnInit {
       
       
     });
-  }
-  public xd(){
-    window.location.href="/home"
   }
 }

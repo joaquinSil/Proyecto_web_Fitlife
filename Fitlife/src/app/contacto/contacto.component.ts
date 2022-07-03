@@ -57,7 +57,6 @@ export class ContactoComponent implements OnInit {
       "asunto":this.formularioContacto.get("asunto")?.value,
       "mensaje":this.formularioContacto.get("mensaje")?.value,
     }).subscribe(respuesta=>{
-      console.log(respuesta);
     });
   }
   
@@ -69,21 +68,5 @@ export class ContactoComponent implements OnInit {
     }else{
       return false;
     }
-    
-    /*this.puenteComponentes.Puente.subscribe((datos: Usuarios) =>{
-      //andres.vidal.s@mail.pucv.cl
-      console.log("aaaaa")
-      console.log(datos);
-      if(datos.correo == "andres.vidal.s@mail.pucv.cl"){
-        console.log("cdddddd");
-        this.administradorconectado = true;
-      }
-    })
-    console.log("aaaaassssssssssssddddddd");
-    if(this.administradorconectado == true){
-      console.log("aaadsssssssssssssssssssssss");
-      return true;
-    } */
-    //else return false;
   }
 }

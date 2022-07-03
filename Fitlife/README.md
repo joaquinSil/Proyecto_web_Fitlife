@@ -19,12 +19,10 @@ que haya enviado (por lo que es una funcionalidad CRUD).
 y si posee cuenta en la página se le hará una recomendación de acuerdo a la cantidad de calorías consumidas y su IMC, 
 al requerir de una base de datos para realizar esta acción, se realizará en un futuro (por lo que es una funcionalidad CRUD).
 
-#  Comentario:
-- A los archivos vidasana.js, meditacion.js y ejercicio.js se les genera una línea de código extra al hacer watch con tsc y actualizar el js .
- Esto produce que los videos no se pueden visualizar. Sin embargo, no debería producir inconvenientes al visualizar la entrega una vez realizada .
--Se traspaso todo el programa a Angular, se utilisa el archivo JSON listaVideos.json para guradar la informacion de los videos,
-esta informacion se llama en los componentes ts de ejercicio, nutricion y meditacion y se utiliza ngfor para crear el carrusel en home.
--Actualmente el programa presentea un problea el cual causa que se tenga que actualizar la pagina para una carga mas rapida cada vez que 
-opera el menu de navegacion y no conosemos la fuente ni como sulucionarlo.
+#  Detalles de la entrega final
+- El sistema es responsivo y permite la vista en moviles generando un menu tipo hamburguesa.
+- Para los roles de admin y usuario se tiene que los usuarios pueden enviar sus comentarios, estos seran guardados en la base de datos de la aplicacion en la tabla de contacto. Por su parte el administrador podra ver los comentarios que hay sobre la aplicacion sin necesidad de consultar la base de datos.
+- Se genero una API-REST con el software de Express/NodeJS utilizando las funcionalidades get para cargar los datos de usuarios y formularios, el metodo post para crear nuevos usuarios y formularios, el metodo put para cambiar las contraseñas de usuario y el metodo delete para eliminar a un usuario si este desea eliminar su cuenta.
+- Entre las funcionalidades de seguridad web estan el inicio de sesion, el cierre de sesion, el cambio de contraseñas y las contraseñas encriptadas, las cuales en ningun momento se pueden ver su contenido.
 
 https://github.com/joaquinSil/Proyecto_web_Fitlife
